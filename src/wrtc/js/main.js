@@ -7,7 +7,8 @@
 		}
 		function enumDevices() {
 			console.log( 'in function enumDevices' );
-			wrtc_di_enumDevices( $( '#with-video' ).is( ':checked' ) );
+			let useVideo = $( '#with-video' ).is( ':checked' );
+			wrtc_di_enumDevices( useVideo );
 		}
 	}
 )();
