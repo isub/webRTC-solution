@@ -32,7 +32,7 @@
 			?>
 		</div>
 		<div>
-			<text id="debug-text-box"></text>
+			<input type="text" id="debug-text-box"/>
 		</div>
 
 		<script type="text/javascript" src="js/device_info.js"></script>
