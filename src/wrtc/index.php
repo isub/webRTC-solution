@@ -33,6 +33,7 @@
 		</div>
 		<div>
 			<input type="checkbox" id="with-video" checked>with video</input>
+			<br>
 			<button id="enum-devices-btn" data-inline="true">enum devices</button>
 		</div>
 
