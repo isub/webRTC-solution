@@ -7,7 +7,7 @@ function wrtc_di_enumDevices() {
 	try {
 		const stream = openMediaDevices( { 'video':true, 'audio':true } );
 		console.log( 'Got MediaStream:', stream );
-		$( '#debug-text-box' ).val( 'Got MediaStream: ' + stream );
+		$( '#debug-text-box' ).val( 'Got MediaStream' );
 	} catch( error ) {
 		console.error( 'Error accessing media devices.', error );
 	}
