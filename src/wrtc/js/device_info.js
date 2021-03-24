@@ -1,4 +1,6 @@
+
 function wrtc_di_enumDevices() {
+	console.log( 'in function wrtc_di_enumDevices' );
 	const constraints = {
 		'video': true,
 		'audio': true
