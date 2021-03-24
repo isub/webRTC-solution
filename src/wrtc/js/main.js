@@ -7,7 +7,6 @@
 		}
 		function enumDevices() {
 			console.log( 'in function enumDevices' );
-			let useVideo = document.getElementById( 'with-video' ).checked;
 			wrtc_di_enumDevices( devices );
 			console.debug( 'enumDevices', devices );
 		}
