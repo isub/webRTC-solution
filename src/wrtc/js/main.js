@@ -7,7 +7,7 @@
 		}
 		function enumDevices() {
 			console.log( 'in function enumDevices' );
-			wrtc_di_enumDevices( document.getElementById( 'with-video' ).is( ':checked' ) );
+			wrtc_di_enumDevices( $( '#with-video' ).is( ':checked' ) );
 		}
 	}
 )();
