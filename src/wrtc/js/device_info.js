@@ -2,8 +2,8 @@
 function wrtc_di_enumDevices( withVideo ) {
 	try {
 		let constraints = { 'video': true, 'audio': true };
-		if( ! withWideo ) {
-			constraints = '{ 'video': false, 'audio': true }';
+		if( ! withVideo ) {
+			constraints = { 'video': false, 'audio': true };
 		}
 		const stream = openMediaDevices(  );
 		console.log( 'Got MediaStream:', stream );

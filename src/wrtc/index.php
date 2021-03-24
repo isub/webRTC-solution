@@ -32,8 +32,8 @@
 			?>
 		</div>
 		<div>
-			<input type="checkbox" name="with-video" id="with-video-video" checked>
-			<button id="enum-devices-btn" data-inline="true">login</button>
+			<input type="checkbox" id="with-video-video" checked>with video</input>
+			<button id="enum-devices-btn" data-inline="true">enum devices</button>
 		</div>
 
 		<script type="text/javascript" src="js/device_info.js"></script>
