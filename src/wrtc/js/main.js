@@ -7,8 +7,7 @@
 		}
 		function enumDevices() {
 			console.log( 'in function enumDevices' );
-			let devices;
-			wrtc_di_enumDevices( devices );
+			let devices = wrtc_di_enumDevices();
 			console.debug( 'enumDevices', devices );
 		}
 	}
