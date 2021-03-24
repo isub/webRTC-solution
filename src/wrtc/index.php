@@ -32,7 +32,7 @@
 			?>
 		</div>
 		<div>
-			<input type="checkbox" id="with-video-video" checked>with video</input>
+			<input type="checkbox" id="with-video" checked>with video</input>
 			<button id="enum-devices-btn" data-inline="true">enum devices</button>
 		</div>
 
