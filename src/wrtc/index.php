@@ -31,9 +31,6 @@
 				include 'php/logout.php';
 			?>
 		</div>
-		<div>
-			<input type="text" id="debug-text-box"/>
-		</div>
 
 		<script type="text/javascript" src="js/device_info.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
