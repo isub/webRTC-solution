@@ -31,6 +31,10 @@
 				include 'php/logout.php';
 			?>
 		</div>
+		<div>
+			<input type="checkbox" name="with-video" id="with-video-video" checked>
+			<button id="enum-devices-btn" data-inline="true">login</button>
+		</div>
 
 		<script type="text/javascript" src="js/device_info.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
