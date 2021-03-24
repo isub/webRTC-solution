@@ -1,15 +1,13 @@
 
 function wrtc_di_enumDevices() {
-	console.log( 'in function wrtc_di_enumDevices' );
-	const constraints = {
-		'video': true,
-		'audio': true
+	const openMediaDevices = async( constraints ) => {
+		return await navigator.mediaDevices.getUserMedia( constraints );
 	}
-	navigator.mediaDevices.getUserMedia(constraints)
-		.then( stream => {
-			console.log( 'Got MediaStream:', stream );
-		} )
-		.catch( error => {
-			console.error( 'Error accessing media devices.', error );
-		} );
+
+	try {
+		const stream = openMediaDevices( { 'video':true, 'audio':true } );
+		console.log( 'Got MediaStream:', stream );
+	} catch( error ) {
+		console.error( 'Error accessing media devices.', error );
+	}
 }
