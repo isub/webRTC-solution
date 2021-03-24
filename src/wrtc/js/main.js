@@ -1,8 +1,6 @@
 (
 	function () {
-		document.onload = function() {
-			console.log( 'in function onload()' );
-			wrtc_di_enumDevices();
-		}
+		document.getElementById('login-btn').addEventListener( 'click', wrtc_di_enumDevices );
 	}
+
 )();
