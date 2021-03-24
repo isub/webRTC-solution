@@ -5,4 +5,4 @@
 			wrtc_di_enumDevices();
 		}
 	}
-)
+)();
