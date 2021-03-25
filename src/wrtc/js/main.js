@@ -11,7 +11,7 @@
 				function( item, id, filtered ) {
 					let selectOption = document.createElement( 'option' );
 					selectOption.value = item.id;
-					selectOption.textContent = item.label;
+					selectOption.label = item.label;
 					selectElement.appendChild( selectOption );
 				}
 			);
