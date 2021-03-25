@@ -14,7 +14,6 @@
 			let filtered = devices.filter( device => device.kind === deviceType );
 			console.debug( 'filter result: ', filtered );
 			let selectElement = document.getElementById( elementId );
-			selectElement.innerHTML = '';
 			filtered.forEach(
 				function( item, id, filtered ) {
 					let selectOption = document.createElement( 'option' );
