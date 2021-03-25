@@ -8,6 +8,7 @@
 			console.debug( 'wrtc_di_enumDevices() result: ', devices );
 			let filtered = devices.filter(
 				function( item, index, array ) {
+					console.debug( 'item content: ', item );
 					if( item.kind === 'audioinput' ) {
 						return true;
 					} else {
