@@ -4,13 +4,13 @@
 		document.getElementById( 'login-btn' ).addEventListener( 'click', doLogin );
 		document.getElementById( 'settings-btn' ).addEventListener( 'click', openSettings );
 		function fillSelect( elementId, devices, deviceType ) {
-			let filtered = devices.filter( device => device.deviceInfo.kind === deviceType );
+			let filtered = devices.filter( device => device.kind === deviceType );
 			console.debug( 'filter result: ', filtered );
 			let txtHTML;
-			if( filtered.length() > 0 ) {
+			if( typeof filtered === Array ) {
 				filtered.forEarch(
 					function( item, id, filtered ) {
-						txtHTML += '<option>' + item.deviceInfo.label + '</option>';
+						txtHTML += '<option>' + item.label + '</option>';
 					}
 				);
 			}
