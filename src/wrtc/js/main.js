@@ -7,7 +7,7 @@
 			let filtered = devices.filter( device => device.deviceInfo.kind === deviceType );
 			console.debug( 'filter result: ', filtered );
 			let txtHTML;
-			if( filtered ) {
+			if( filtered.length() > 0 ) {
 				filtered.forEarch(
 					function( item, id, filtered ) {
 						txtHTML += '<option>' + item.deviceInfo.label + '</option>';
