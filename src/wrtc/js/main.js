@@ -23,14 +23,14 @@
 				}
 			);
 		}
-		function makeDeviceList() {
+		async function makeDeviceList() {
 			let devices = await wrtc_di_enumDevices();
 			console.debug( 'wrtc_di_enumDevices() result: ', devices );
 			fillSelect( 'audio-device-in', devices, 'audioinput' );
 			fillSelect( 'audio-device-out', devices, 'audiooutput' );
 			fillSelect( 'video-device-in', devices, 'videoinput' );
 		}
-		async function docLoaded() {
+		function docLoaded() {
 			makeDeviceList();
 		}
 		function doLogin() {
