@@ -7,9 +7,9 @@
 		}
 		function openSettings() {
 			if( document.getElementById( 'settings' ).style.display === 'none' ) {
-				document.getElementById( 'settings' ).style.display === '';
+				document.getElementById( 'settings' ).style.display = '';
 			} else {
-				document.getElementById( 'settings' ).style.display === 'none';
+				document.getElementById( 'settings' ).style.display = 'none';
 			}
 		}
 	}
