@@ -10,9 +10,9 @@
 			filtered.forEach(
 				function( item, id, filtered ) {
 					let selectOption = document.createElement( 'option' );
-					opt.value = item.id;
-					opt.textContent = item.label;
-					selectElement.appendChild( opt );
+					selectOption.value = item.id;
+					selectOption.textContent = item.label;
+					selectElement.appendChild( selectOption );
 				}
 			);
 		}
