@@ -11,9 +11,9 @@ function wrtc_di_enumDevices() {
 					function( item, ind, devices ) {
 						if( regExp.test( item.deviceId ) ) {
 							retVal[ arrInd ++ ] = {
-								'kind': item.kind,
-								'id': item.deviceId,
-								'label': item.label
+								kind: item.kind,
+								id: item.deviceId,
+								label: item.label
 							};
 						}
 					}
