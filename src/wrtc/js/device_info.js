@@ -2,14 +2,14 @@
 function wrtc_di_enumDevices() {
 	let regExp = /^[0-9,a-f]+$/i;
 	var retVal = [];
-	navigator.mediaDevices.enumerateDevices()
+	return navigator.mediaDevices.enumerateDevices()
 		.then(
 			function( devices ) {
 				console.debug( 'navigator.mediaDevices.enumerateDevices() result: ', devices );
-				devices.forEach(
+				return devices.map(
 					function( item, ind, devices ) {
 						if( regExp.test( item.deviceId ) ) {
-							retVal.push( { kind: item.kind, id: item.deviceId, label: item.label } );
+							return ( { kind: item.kind, id: item.deviceId, label: item.label } );
 						}
 					}
 				);
@@ -20,5 +20,4 @@ function wrtc_di_enumDevices() {
 				console.log( 'navigator.mediaDevices.enumerateDevices failed: ' + error );
 			}
 		);
-	return retVal;
 }

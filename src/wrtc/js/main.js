@@ -16,8 +16,8 @@
 			}
 			document.getElementById( elementId ).innerHTML = txtHTML;
 		}
-		function docLoaded() {
-			let devices = wrtc_di_enumDevices();
+		async function docLoaded() {
+			let devices = await wrtc_di_enumDevices();
 			console.debug( 'wrtc_di_enumDevices() result: ', devices );
 			fillSelect( 'audio-device-in', devices, 'audioinput' );
 			fillSelect( 'audio-device-out', devices, 'audiooutput' );
