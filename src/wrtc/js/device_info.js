@@ -1,7 +1,7 @@
 
 function wrtc_di_enumDevices() {
 	let regExp = /^[0-9,a-f]+$/i;
-	var retVal = [];
+	var retVal = new Array();
 	navigator.mediaDevices.enumerateDevices()
 		.then(
 			function( devices ) {
