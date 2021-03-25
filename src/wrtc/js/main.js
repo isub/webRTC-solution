@@ -1,5 +1,5 @@
 (
-	async function () {
+	function () {
 		document.addEventListener( "DOMContentLoaded", docLoaded );
 		document.getElementById( 'login-btn' ).addEventListener( 'click', doLogin );
 		document.getElementById( 'settings-btn' ).addEventListener( 'click', openSettings );
@@ -16,7 +16,7 @@
 			}
 			document.getElementById( elementId ).innerHTML = txtHTML;
 		}
-		function docLoaded() {
+		async function docLoaded() {
 			let devices = await wrtc_di_enumDevices();
 			console.debug( 'wrtc_di_enumDevices() result: ', devices );
 			fillSelect( 'audio-device-in', devices, 'audioinput' );
