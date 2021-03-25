@@ -6,16 +6,7 @@
 		function docLoaded() {
 			let devices = wrtc_di_enumDevices();
 			console.debug( 'wrtc_di_enumDevices() result: ', devices );
-			let filtered = devices.filter(
-				function( item, index, array ) {
-					console.debug( 'item content: ', item );
-					if( item.kind === 'audioinput' ) {
-						return true;
-					} else {
-						return false;
-					}
-				}
-			);
+			let filtered = devices.filter( device => device.kind === "audioinput" );
 			console.debug( 'filter result: ', filtered );
 			let txtHTML;
 			filtered.forEarch(
