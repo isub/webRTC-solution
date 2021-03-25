@@ -7,16 +7,14 @@
 			let filtered = devices.filter( device => device.kind === deviceType );
 			console.debug( 'filter result: ', filtered );
 			let selectElement = document.getElementById( elementId );
-			if( typeof filtered === object ) {
-				filtered.forEarch(
-					function( item, id, filtered ) {
-						let selectOption = document.createElement( 'option' );
-						opt.value = item.id;
-						opt.textContent = item.label;
-						selectElement.appendChild( opt );
-					}
-				);
-			}
+			filtered.forEarch(
+				function( item, id, filtered ) {
+					let selectOption = document.createElement( 'option' );
+					opt.value = item.id;
+					opt.textContent = item.label;
+					selectElement.appendChild( opt );
+				}
+			);
 		}
 		async function docLoaded() {
 			let devices = await wrtc_di_enumDevices();
