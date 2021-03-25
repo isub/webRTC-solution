@@ -1,8 +1,19 @@
 (
 	function () {
-		document.onload = function() { alert( 'page is loaded' ); };
+		document.addEventListener( "DOMContentLoaded", docLoaded );
 		document.getElementById( 'login-btn' ).addEventListener( 'click', doLogin );
 		document.getElementById( 'settings-btn' ).addEventListener( 'click', openSettings );
+		function docLoaded() {
+			let devices = wrtc_di_enumDevices();
+			let filtered = devices.filter( devices.kind === 'audioinput' );
+			let txtHTML;
+			filtered.forEarch(
+				function( item, id, filtered ) {
+					txtHTML += '<option>' + item.label + '</option>';
+				}
+			);
+			document.getElementById( 'settings-btn' ).innerHTML = txtHTML;
+		}
 		function doLogin() {
 			console.log( 'in function doLogin' );
 		}
