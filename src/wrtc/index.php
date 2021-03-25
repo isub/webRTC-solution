@@ -31,13 +31,13 @@
 				include 'php/logout.php';
 			?>
 		</div>
+		<div>
+			<button id="settings-btn" data-inline="true">settings</button>
+		</div>
 		<div id="settings" style="align:center;width:600px;display: none">
 			<?php
 				include 'php/settings.php';
 			?>
-		</div>
-		<div>
-			<button id="settings-btn" data-inline="true">settings</button>
 		</div>
 
 		<script type="text/javascript" src="js/device_info.js"></script>
