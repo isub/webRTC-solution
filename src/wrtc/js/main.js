@@ -8,6 +8,7 @@
 		function enumDevices() {
 			console.log( 'in function enumDevices' );
 			let devices = wrtc_di_enumDevices();
+			console.debug( 'wrtc_di_enumDevices() result: ', devices );
 			devices.forEach(
 				function ( item, ind, devices ) {
 					console.debug( 'media device: ', item );
