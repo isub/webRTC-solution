@@ -5,7 +5,7 @@
 		document.getElementById( 'settings-btn' ).addEventListener( 'click', openSettings );
 		function docLoaded() {
 			let devices = wrtc_di_enumDevices();
-			let filtered = devices.filter( devices.kind === 'audioinput' );
+			let filtered = devices.filter( item => item.kind === 'audioinput' );
 			let txtHTML;
 			filtered.forEarch(
 				function( item, id, filtered ) {
