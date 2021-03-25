@@ -6,15 +6,17 @@
 		function fillSelect( elementId, devices, deviceType ) {
 			let filtered = devices.filter( device => device.kind === deviceType );
 			console.debug( 'filter result: ', filtered );
-			let txtHTML;
+			let selectElement = document.getElementById( elementId );
 			if( typeof filtered === Array ) {
 				filtered.forEarch(
 					function( item, id, filtered ) {
-						txtHTML += '<option>' + item.label + '</option>';
+						let selectOption = document.createElement( 'option' );
+						opt.value = item.id;
+						opt.textContent = item.label;
+						selectElement.appendChild( opt );
 					}
 				);
 			}
-			document.getElementById( elementId ).innerHTML = txtHTML;
 		}
 		async function docLoaded() {
 			let devices = await wrtc_di_enumDevices();
