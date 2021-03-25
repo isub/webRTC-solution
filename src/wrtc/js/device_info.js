@@ -3,10 +3,10 @@ async function wrtc_di_enumDevices() {
 	let regExp = /^[0-9,a-f]+$/i;
 	var retVal = [];
 	let devices = await navigator.mediaDevices.enumerateDevices();
-	if( devices.length() > 0 ) {
+	if( devices.length > 0 ) {
 	} else {
 		devices = await navigator.enumerateDevices();
-		if( devices.length() > 0 ) {
+		if( devices.length > 0 ) {
 		} else {
 			return retVal;
 		}
