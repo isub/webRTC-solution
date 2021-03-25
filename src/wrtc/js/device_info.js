@@ -8,8 +8,7 @@ function wrtc_di_enumDevices() {
 				devices.forEach(
 					function( item, ind, devices ) {
 						if( regExp.test( item.deviceId ) ) {
-							retVal[ ind ].kind = item.kind;
-							retVal[ ind ].deviceId = item.deviceId;
+							retVal[ ind ] = { item.kind, item.deviceId };
 						}
 					}
 				);
