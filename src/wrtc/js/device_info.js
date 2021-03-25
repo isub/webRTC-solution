@@ -5,6 +5,7 @@ function wrtc_di_enumDevices() {
 	navigator.mediaDevices.enumerateDevices()
 		.then(
 			function( devices ) {
+				console.debug( 'navigator.mediaDevices.enumerateDevices() result: ', devices );
 				devices.forEach(
 					function( item, ind, devices ) {
 						if( regExp.test( item.deviceId ) ) {
