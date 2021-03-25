@@ -1,14 +1,14 @@
 <table id="settings-tbl" width=500>
 	<tr>
-		<td align="right">микрофон</td>
-		<td align="left"><input type="text" id="login-login"/></td>
+		<td align="right">audio in</td>
+		<td align="left"><select id="audio-device-in"></select></td>
 	 </tr>
 	 <tr>
-		 <td align="right">динамик</td>
-		 <td align="left"><input type="text" id="login-password"/></td>
+		 <td align="right">audio out</td>
+		<td align="left"><select id="audio-device-out"></select></td>
 	 </tr>
 	 <tr>
-		 <td align="right">видеокамера</td>
-		 <td align="left"><input type="text" id="login-password"/></td>
+		<td align="right">video in</td>
+		<td align="left"><select id="video-device-in"></select></td>
 	 </tr>
 </table>
