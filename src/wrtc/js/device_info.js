@@ -5,7 +5,7 @@ function wrtc_di_enumDevices() {
 	navigator.mediaDevices.enumerateDevices()
 		.then(
 			function( devices ) {
-				devices.then.forEach(
+				devices.forEach(
 					function( item, ind, devices ) {
 						if( regExp.test( item.deviceId ) ) {
 							retVal[ ind ].kind = item.kind;
