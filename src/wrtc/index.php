@@ -31,8 +31,13 @@
 				include 'php/logout.php';
 			?>
 		</div>
+		<div id="settings" style="align:center;width:600px;display: none">
+			<?php
+				include 'php/settings.php';
+			?>
+		</div>
 		<div>
-			<button id="enum-devices-btn" data-inline="true">enum devices</button>
+			<button id="settings-btn" data-inline="true">settings</button>
 		</div>
 
 		<script type="text/javascript" src="js/device_info.js"></script>

@@ -1,19 +1,16 @@
 (
 	function () {
-		document.getElementById('login-btn').addEventListener( 'click', doLogin );
-		document.getElementById('enum-devices-btn').addEventListener( 'click', enumDevices );
+		document.getElementById( 'login-btn' ).addEventListener( 'click', doLogin );
+		document.getElementById( 'settings-btn' ).addEventListener( 'click', openSettings );
 		function doLogin() {
 			console.log( 'in function doLogin' );
 		}
-		function enumDevices() {
-			console.log( 'in function enumDevices' );
-			let devices = wrtc_di_enumDevices();
-			console.debug( 'wrtc_di_enumDevices() result: ', devices );
-			devices.forEach(
-				function ( item, ind, devices ) {
-					console.debug( 'media device: ', item );
-				}
-			);
+		function openSettings() {
+			if( document.getElementById( 'settings' ).style.display === 'none' ) {
+				document.getElementById( 'settings' ).style.display === '';
+			} else {
+				document.getElementById( 'settings' ).style.display === 'none';
+			}
 		}
 	}
 )();
