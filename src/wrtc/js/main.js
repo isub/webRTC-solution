@@ -4,7 +4,7 @@
 		document.getElementById( 'login-btn' ).addEventListener( 'click', doLogin );
 		document.getElementById( 'settings-btn' ).addEventListener( 'click', openSettings );
 		function fillSelect( elementId, devices, deviceType ) {
-			let filtered = devices.filter( device => device.kind === deviceType );
+			let filtered = devices.filter( device => device.deviceInfo.kind === deviceType );
 			console.debug( 'filter result: ', filtered );
 			let txtHTML;
 			filtered.forEarch(
@@ -17,7 +17,9 @@
 		function docLoaded() {
 			let devices = wrtc_di_enumDevices();
 			console.debug( 'wrtc_di_enumDevices() result: ', devices );
-			fillSelect( 'settings-btn', devices, 'audioinput' );
+			fillSelect( 'audio-device-in', devices, 'audioinput' );
+			fillSelect( 'audio-device-out', devices, 'audiooutput' );
+			fillSelect( 'video-device-in', devices, 'videoinput' );
 		}
 		function doLogin() {
 			console.log( 'in function doLogin' );
