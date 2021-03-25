@@ -1,5 +1,6 @@
 (
 	function () {
+		document.onload = function() { alert( 'page is loaded' ); };
 		document.getElementById( 'login-btn' ).addEventListener( 'click', doLogin );
 		document.getElementById( 'settings-btn' ).addEventListener( 'click', openSettings );
 		function doLogin() {
