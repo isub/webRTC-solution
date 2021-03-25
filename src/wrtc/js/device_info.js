@@ -6,10 +6,10 @@ function wrtc_di_enumDevices() {
 		.then(
 			function( devices ) {
 				console.debug( 'navigator.mediaDevices.enumerateDevices() result: ', devices );
-				return devices.map(
+				return devices.filter(
 					function( item, ind, devices ) {
 						if( regExp.test( item.deviceId ) ) {
-							return ( { kind: item.kind, id: item.deviceId, label: item.label } );
+							return true;
 						}
 					}
 				);
