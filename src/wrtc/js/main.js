@@ -7,11 +7,13 @@
 			let filtered = devices.filter( device => device.deviceInfo.kind === deviceType );
 			console.debug( 'filter result: ', filtered );
 			let txtHTML;
-			filtered.forEarch(
-				function( item, id, filtered ) {
-					txtHTML += '<option>' + item.label + '</option>';
-				}
-			);
+			if( filtered ) {
+				filtered.forEarch(
+					function( item, id, filtered ) {
+						txtHTML += '<option>' + item.deviceInfo.label + '</option>';
+					}
+				);
+			}
 			document.getElementById( elementId ).innerHTML = txtHTML;
 		}
 		function docLoaded() {
