@@ -7,7 +7,7 @@
 			let filtered = devices.filter( device => device.kind === deviceType );
 			console.debug( 'filter result: ', filtered );
 			let selectElement = document.getElementById( elementId );
-			if( typeof filtered === Array ) {
+			if( typeof filtered == Array ) {
 				filtered.forEarch(
 					function( item, id, filtered ) {
 						let selectOption = document.createElement( 'option' );
