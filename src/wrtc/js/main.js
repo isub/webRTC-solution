@@ -19,10 +19,10 @@
 			wrtc_sig_doLogin( credentials );
 		}
 		function openSettings() {
-			if( document.getElementById( 'settings' ).hidden ) {
-				document.getElementById( 'settings' ).hidden = false;
+			if( document.getElementById( 'settings' ).style.display === 'none' ) {
+				document.getElementById( 'settings' ).style.display = '';
 			} else {
-				document.getElementById( 'settings' ).hidden = true;
+				document.getElementById( 'settings' ).style.display = 'none';
 			}
 		}
 		async function makeCall() {
