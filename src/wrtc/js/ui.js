@@ -22,10 +22,10 @@ async function wrtc_ui_deviceList() {
 }
 
 function wrtc_ui_onLogin() {
-	console.debug( 'in function wrtc_ui_onLogin: ', document.getElementById( 'login-login' ).innerHTML );
-	console.debug( 'in function wrtc_ui_onLogin: ', document.getElementById( 'login-passw' ).innerHTML );
+	console.debug( 'in function wrtc_ui_onLogin: ', document.getElementById( 'login-login' ).value );
+	console.debug( 'in function wrtc_ui_onLogin: ', document.getElementById( 'login-passw' ).value );
 	return {
-		'login': document.getElementById( 'login-login' ).innerHTML,
-		'passw': document.getElementById( 'login-passw' ).innerHTML
+		'login': document.getElementById( 'login-login' ).value,
+		'passw': document.getElementById( 'login-passw' ).value
 	};
 }
