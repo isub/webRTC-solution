@@ -19,7 +19,7 @@ function wrtc_sig_doLogin( credentials ) {
 			'sessid':		sessionId
 		},
 		'id':   credentials.login
-	};
+	}
 	console.debug( 'in function wrtc_sig_doLogin: ', request );
 	wrtc_ws_sendMessage( request, wrtc_sig_doLoginResp );
 }
