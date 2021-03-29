@@ -12,7 +12,6 @@ function fillSelect( elementId, devices, deviceType ) {
 		}
 	);
 }
-
 async function wrtc_ui_deviceList() {
 	let devices = await wrtc_di_enumDevices();
 	console.debug( 'wrtc_di_enumDevices() result: ', devices );
@@ -20,7 +19,6 @@ async function wrtc_ui_deviceList() {
 	fillSelect( 'audio-device-out', devices, 'audiooutput' );
 	fillSelect( 'video-device-in', devices, 'videoinput' );
 }
-
 function wrtc_ui_onLogin() {
 	console.debug( 'in function wrtc_ui_onLogin: ', document.getElementById( 'login-login' ).value );
 	console.debug( 'in function wrtc_ui_onLogin: ', document.getElementById( 'login-passw' ).value );

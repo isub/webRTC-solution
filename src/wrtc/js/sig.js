@@ -7,7 +7,6 @@ function wrtc_sig_genSessionId() {
 	);
 	console.log( 'session-id: ', sessionId );
 }
-
 function wrtc_sig_doLogin( credentials ) {
 	let login = credentials.login + '@' + document.domain;
 	console.debug( 'in function wrtc_sig_doLogin: ', credentials );
@@ -22,4 +21,8 @@ function wrtc_sig_doLogin( credentials ) {
 		'id':   credentials.login
 	};
 	console.debug( 'in function wrtc_sig_doLogin: ', request );
+	wrtc_ws_sendMessage( request, wrtc_sig_doLoginResp );
+}
+function wrtc_sig_doLoginResp( event ) {
+	console.debug( 'in function wrtc_sig_doLoginResp: ', event );
 }
