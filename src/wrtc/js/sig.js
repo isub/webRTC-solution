@@ -9,6 +9,7 @@ function wrtc_sig_genSessionId() {
 }
 
 function wrtc_sig_doLogin( credentials ) {
+	console.debug( 'in function wrtc_sig_doLogin: ', credentials );
 	request = { 'jsonrpc':      '2.0',
 		'method':       'login',
 		'params':       {
