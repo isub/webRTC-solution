@@ -32,6 +32,7 @@
 		}
 		function docLoaded() {
 			makeDeviceList();
+			makeCall();
 		}
 		function doLogin() {
 			console.log( 'in function doLogin' );
@@ -42,6 +43,11 @@
 			} else {
 				document.getElementById( 'settings' ).style.display = 'none';
 			}
+		}
+		function makeCall() {
+			const configuration = { 'iceServers': [ { 'urls': 'turn:sip.dtco.ru' } ] };
+			const peerConnection = new RTCPeerConnection( configuration );
+			console.log( 'local connection description: ', peerConnection.currentLocalDescription );
 		}
 	}
 )();
