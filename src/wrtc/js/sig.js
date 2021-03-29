@@ -10,7 +10,7 @@ function wrtc_sig_genSessionId() {
 function wrtc_sig_doLogin( credentials ) {
 	let login = credentials.login + '@' + document.domain;
 	console.debug( 'in function wrtc_sig_doLogin: ', credentials );
-	request = { 'jsonrpc':      '2.0',
+	request = [{ 'jsonrpc':      '2.0',
 		'method':       'login',
 		'params':       {
 			'login':		login,
@@ -19,7 +19,7 @@ function wrtc_sig_doLogin( credentials ) {
 			'sessid':		sessionId
 		},
 		'id':   credentials.login
-	}
+	}];
 	console.debug( 'in function wrtc_sig_doLogin: ', request );
 	wrtc_ws_sendMessage( request, wrtc_sig_doLoginResp );
 }
