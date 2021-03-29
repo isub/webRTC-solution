@@ -9,15 +9,17 @@ function wrtc_sig_genSessionId() {
 }
 
 function wrtc_sig_doLogin( credentials ) {
+	let login = credentials.login + '@' + document.domain;
 	console.debug( 'in function wrtc_sig_doLogin: ', credentials );
 	request = { 'jsonrpc':      '2.0',
 		'method':       'login',
 		'params':       {
-			'login':		credentials.login,
+			'login':		login,
 			'passwd':		credentials.passw,
 			'loginParams':	{},
 			'sessid':		sessionId
 		},
-		'id':   3
-	}
+		'id':   credentials.login
+	};
+	console.debug( 'in function wrtc_sig_doLogin: ', request );
 }
