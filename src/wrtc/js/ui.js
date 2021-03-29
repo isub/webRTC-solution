@@ -12,10 +12,18 @@ function fillSelect( elementId, devices, deviceType ) {
 		}
 	);
 }
+
 async function wrtc_ui_deviceList() {
 	let devices = await wrtc_di_enumDevices();
 	console.debug( 'wrtc_di_enumDevices() result: ', devices );
 	fillSelect( 'audio-device-in', devices, 'audioinput' );
 	fillSelect( 'audio-device-out', devices, 'audiooutput' );
 	fillSelect( 'video-device-in', devices, 'videoinput' );
+}
+
+function wrtc_ui_onLogin() {
+	return {
+		'login': document.getElementById( 'login-login' ).textContent,
+		'passw': document.getElementById( 'login-passw' ).textContent
+	};
 }

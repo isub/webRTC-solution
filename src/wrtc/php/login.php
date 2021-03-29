@@ -5,7 +5,7 @@
 	 </tr>
 	 <tr>
 		 <td align="right">password</td>
-		 <td align="left"><input type="text" id="login-password"/></td>
+		 <td align="left"><input type="text" id="login-passw"/></td>
 	 </tr>
 </table>
 <button id="login-btn" data-inline="true">login</button>

@@ -8,12 +8,12 @@ function wrtc_sig_genSessionId() {
 	console.log( 'session-id: ', sessionId );
 }
 
-function wrtc_sig_doLogin( login, passw ) {
+function wrtc_sig_doLogin( credentials ) {
 	request = { 'jsonrpc':      '2.0',
 		'method':       'login',
 		'params':       {
-			'login':		login,
-			'passwd':		passw,
+			'login':		credentials.login,
+			'passwd':		credentials.passw,
 			'loginParams':	{},
 			'sessid':		sessionId
 		},
