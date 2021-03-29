@@ -18,7 +18,7 @@ function wrtc_sig_doLogin( credentials ) {
 			'loginParams':	{},
 			'sessid':		sessionId
 		},
-		'id':   credentials.login
+		'id':   1
 	}];
 	console.debug( 'in function wrtc_sig_doLogin: ', request );
 	wrtc_ws_sendMessage( request, wrtc_sig_doLoginResp );
