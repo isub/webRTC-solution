@@ -19,7 +19,7 @@
 			wrtc_sig_doLogin( credentials );
 		}
 		function openSettings() {
-			if( document.getElementById( 'settings' ).style.display === 'none' ) {
+			if( document.getElementById( 'settings' ).hidden ) {
 				document.getElementById( 'settings' ).style.display = '';
 			} else {
 				document.getElementById( 'settings' ).style.display = 'none';
