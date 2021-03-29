@@ -47,7 +47,7 @@
 		async function makeCall() {
 			const configuration = { 'iceServers': [ { 'urls': 'turn:sip.dtco.ru', 'username': 'sip.dtco.ru', 'credential': 'Gh0uy0pG0u0ls' } ] };
 			const peerConnection = new RTCPeerConnection( configuration );
-			let offerLocal = await peerConnection.createOffer();
+			let offerLocal = await peerConnection.createOffer( { 'offerToReceiveAudio': true } );
 			console.log( 'local offer: ', offerLocal );
 		}
 	}
