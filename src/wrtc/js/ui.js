@@ -22,6 +22,8 @@ async function wrtc_ui_deviceList() {
 }
 
 function wrtc_ui_onLogin() {
+	console.debug( 'in function wrtc_ui_onLogin: ', document.getElementById( 'login-login' ) );
+	console.debug( 'in function wrtc_ui_onLogin: ', document.getElementById( 'login-passw' ) );
 	return {
 		'login': document.getElementById( 'login-login' ).textContent,
 		'passw': document.getElementById( 'login-passw' ).textContent
