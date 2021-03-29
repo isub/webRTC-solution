@@ -20,9 +20,9 @@
 		}
 		function openSettings() {
 			if( document.getElementById( 'settings' ).hidden ) {
-				document.getElementById( 'settings' ).style.display = '';
+				document.getElementById( 'settings' ).hidden = false;
 			} else {
-				document.getElementById( 'settings' ).style.display = 'none';
+				document.getElementById( 'settings' ).hidden = true;
 			}
 		}
 		async function makeCall() {
