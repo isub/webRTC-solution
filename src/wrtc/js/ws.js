@@ -20,6 +20,6 @@ webSock.onerror = function( event ) {
 	console.log( 'an error occurred on web socket: ', event );
 }
 function wrtc_ws_sendMessage( message, callback ) {
-	onMessage_cb = calllback;
+	onMessage_cb = callback;
 	webSock.send( message );
 }
