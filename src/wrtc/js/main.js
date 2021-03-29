@@ -9,7 +9,6 @@
 				makeDeviceList();
 			}
 		);
-
 		function fillSelect( elementId, devices, deviceType ) {
 			let filtered = devices.filter( device => device.kind === deviceType );
 			console.debug( 'filter result: ', filtered );
@@ -32,7 +31,6 @@
 		}
 		function docLoaded() {
 			makeDeviceList();
-			makeCall();
 		}
 		function doLogin() {
 			console.log( 'in function doLogin' );
