@@ -12,7 +12,7 @@ function wrtc_sig_doLogin( credentials ) {
 	++reqId;
 	let login = credentials.login + '@' + document.domain;
 	console.debug( 'in function wrtc_sig_doLogin: ', credentials );
-	request = {"jsonrpc":"2.0","method":"login","params":{"login":login,"passwd":credentials.passw,"sessid":sessionId},"id":reqId}
+	request = {"jsonrpc":"2.0","method":"login","params":{"login":login,"passwd":credentials.passw,"sessid":sessionId},"id":reqId};
 	console.debug( 'in function wrtc_sig_doLogin: ', request );
 	wrtc_ws_sendMessage( request, wrtc_sig_doLoginResp );
 }
