@@ -1,5 +1,5 @@
 
-var wssUrl = 'wss:sip.dtco.ru:8082';
+var wssUrl = 'ws:sip.dtco.ru:8081';
 var webSock = new WebSocket( wssUrl );
 var onMessage_cb;
 
