@@ -10,6 +10,7 @@
 			}
 		);
 		function docLoaded() {
+			wrtc_ws_init();
 			wrtc_ui_deviceList();
 			wrtc_sig_genSessionId();
 		}
