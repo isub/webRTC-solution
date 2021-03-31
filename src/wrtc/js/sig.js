@@ -1,5 +1,6 @@
 
 var sessionId;
+var reqId;
 
 function wrtc_sig_genSessionId() {
 	sessionId = ( [1e7]+-1e3+-4e3+-8e3+-1e11 ).replace(
@@ -8,21 +9,15 @@ function wrtc_sig_genSessionId() {
 	console.log( 'session-id: ', sessionId );
 }
 function wrtc_sig_doLogin( credentials ) {
+	++reqId;
 	let login = credentials.login + '@' + document.domain;
 	console.debug( 'in function wrtc_sig_doLogin: ', credentials );
-	request = [{ 'jsonrpc':      '2.0',
-		'method':       'login',
-		'params':       {
-			'login':		login,
-			'passwd':		credentials.passw,
-			'loginParams':	{},
-			'sessid':		sessionId
-		},
-		'id':   1
-	}];
+	request = {"jsonrpc":"2.0","method":"login","params":{"login":login,"passwd":credentials.passw,"sessid":sessionId},"id":reqId}
 	console.debug( 'in function wrtc_sig_doLogin: ', request );
 	wrtc_ws_sendMessage( request, wrtc_sig_doLoginResp );
 }
 function wrtc_sig_doLoginResp( event ) {
 	console.debug( 'in function wrtc_sig_doLoginResp: ', event );
 }
+
+
