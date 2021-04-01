@@ -1,9 +1,8 @@
 
-var wssUrl = 'ws:sip.dtco.ru:8081';
 var webSock;
 var onMessage_cb;
 
-function wrtc_ws_init() {
+function wrtc_ws_init( wssURL ) {
 	webSock = new WebSocket( wssUrl );
 	webSock.onopen = function() {
 		console.debug( 'web socket connection is established successfully' );

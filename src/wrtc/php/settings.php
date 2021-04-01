@@ -11,4 +11,8 @@
 		<td align="right">video in</td>
 		<td align="left"><select id="video-device-in"></select></td>
 	 </tr>
+	 <tr>
+		<td align="right">verto URL</td>
+		<td align="left"><input type="text" id="verto-url"/></td>
+	 </tr>
 </table>

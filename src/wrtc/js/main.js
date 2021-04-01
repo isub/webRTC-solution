@@ -12,9 +12,10 @@
 			);
 		}
 		function docLoaded() {
-			wrtc_ws_init();
 			wrtc_ui_deviceList();
+			wrtc_ui_wssURL();
 			wrtc_sig_genSessionId();
+			wrtc_ws_init( document.getElementById( 'verto-url' ).value );
 		}
 		function doLogin() {
 			console.log( 'in function doLogin' );

@@ -20,6 +20,13 @@ async function wrtc_ui_deviceList() {
 	fillSelect( 'video-device-in', devices, 'videoinput' );
 }
 function wrtc_ui_onLogin() {
+	if( location.protocol === 'https' ) {
+		document.getElementById( 'verto-url' ).value = 'wss:sip.dtco.ru:8082';
+	} else {
+		document.getElementById( 'verto-url' ).value = 'ws:sip.dtco.ru:8081';
+	}
+}
+function wrtc_ui_onLogin() {
 	console.debug( 'in function wrtc_ui_onLogin: ', document.getElementById( 'login-login' ).value );
 	console.debug( 'in function wrtc_ui_onLogin: ', document.getElementById( 'login-passw' ).value );
 	return {

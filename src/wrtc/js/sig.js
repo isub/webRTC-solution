@@ -19,5 +19,3 @@ function wrtc_sig_doLogin( credentials ) {
 function wrtc_sig_doLoginResp( event ) {
 	console.debug( 'in function wrtc_sig_doLoginResp: ', event );
 }
-
-
