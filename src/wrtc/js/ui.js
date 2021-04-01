@@ -19,7 +19,7 @@ async function wrtc_ui_deviceList() {
 	fillSelect( 'audio-device-out', devices, 'audiooutput' );
 	fillSelect( 'video-device-in', devices, 'videoinput' );
 }
-function wrtc_ui_onLogin() {
+function wrtc_ui_vertoURL() {
 	if( location.protocol === 'https' ) {
 		document.getElementById( 'verto-url' ).value = 'wss:sip.dtco.ru:8082';
 	} else {
