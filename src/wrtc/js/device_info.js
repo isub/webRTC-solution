@@ -2,9 +2,9 @@
 async function wrtc_di_enumDevices() {
 	let regExp = /^[0-9,a-f]+$/i;
 	var retVal = [];
-	if( navigator.mediaDevices !== undefined ) {
-	} else {
+	if( navigator.mediaDevices === undefined ) {
 		return retVal;
+	} else {
 	}
 	let devices = await navigator.mediaDevices.enumerateDevices();
 	devices.forEach(
