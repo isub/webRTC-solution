@@ -2,7 +2,7 @@
 async function wrtc_di_enumDevices() {
 	let regExp = /^[0-9,a-f]+$/i;
 	var retVal = [];
-	if( navigator.mediaDevices !== 'undefined' ) {
+	if( navigator.mediaDevices !== undefined ) {
 	} else {
 		return retVal;
 	}

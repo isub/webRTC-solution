@@ -3,7 +3,7 @@
 		document.addEventListener( "DOMContentLoaded", docLoaded );
 		document.getElementById( 'login-btn' ).addEventListener( 'click', doLogin );
 		document.getElementById( 'settings-btn' ).addEventListener( 'click', openSettings );
-		if( navigator.mediaDevices !== 'undefined' ) {
+		if( navigator.mediaDevices !== undefined ) {
 			navigator.mediaDevices.addEventListener(
 				'devicechange',
 				event => {
