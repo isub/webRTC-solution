@@ -14,7 +14,7 @@ function wrtc_sig_doLogin( credentials ) {
 	console.debug( 'in function wrtc_sig_doLogin: ', credentials );
 	request = {"jsonrpc":"2.0","method":"login","params":{"login":login,"passwd":credentials.passw,"sessid":sessionId},"id":reqId};
 	console.debug( 'in function wrtc_sig_doLogin: ', request );
-	wrtc_ws_sendMessage( request.toString(), wrtc_sig_doLoginResp );
+	wrtc_ws_sendMessage( JSON.stringify( request ), wrtc_sig_doLoginResp );
 }
 function wrtc_sig_doLoginResp( event ) {
 	console.debug( 'in function wrtc_sig_doLoginResp: ', event );
