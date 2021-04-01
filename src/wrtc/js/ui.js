@@ -20,7 +20,7 @@ async function wrtc_ui_deviceList() {
 	fillSelect( 'video-device-in', devices, 'videoinput' );
 }
 function wrtc_ui_vertoURL() {
-	if( location.protocol === 'https' ) {
+	if( location.protocol === 'https:' ) {
 		document.getElementById( 'verto-url' ).value = 'wss:sip.dtco.ru:8082';
 	} else {
 		document.getElementById( 'verto-url' ).value = 'ws:sip.dtco.ru:8081';
