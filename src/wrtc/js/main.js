@@ -16,8 +16,8 @@
 			wrtc_sig_doLogin( credentials, didLoginSuccess, didLoginFailed );
 		}
 		function didLoginSuccess() {
-			document.getElementById( 'state-offline' ).style.display === 'none';
-			document.getElementById( 'state-online' ).style.display === '';
+			document.getElementById( 'state-offline' ).style.display = 'none';
+			document.getElementById( 'state-online' ).style.display = '';
 		}
 		function didLoginFailed( err ) {
 			console.log( 'authentification failed:', err );
