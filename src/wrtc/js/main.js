@@ -18,6 +18,7 @@
 		function didLoginSuccess() {
 			document.getElementById( 'state-offline' ).style.display = 'none';
 			document.getElementById( 'state-online' ).style.display = '';
+			document.getElementById( 'session-control' ).style.display = '';
 		}
 		function didLoginFailed( err ) {
 			console.log( 'authentification failed:', err );
