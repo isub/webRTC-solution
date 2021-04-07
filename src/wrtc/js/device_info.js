@@ -8,12 +8,12 @@ async function wrtc_di_enumDevices() {
 	} else {
 	}
 	try {
-		await navigator.mediaDevices.getUserMedia( { audio: true, video: false } );   
+		await navigator.mediaDevices.getUserMedia( { audio: true, video: false } );
 	} catch( err ) {
 		isUsingAudio = false;
 	}
 	try {
-		await navigator.mediaDevices.getUserMedia( { audio: false, video: true } );   
+		await navigator.mediaDevices.getUserMedia( { audio: false, video: true } );
 	} catch( err ) {
 		isUsingVideo = false;
 	}
