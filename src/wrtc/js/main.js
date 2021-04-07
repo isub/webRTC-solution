@@ -1,5 +1,8 @@
 (
 	function () {
+		document.addEventListener( "DOMContentLoaded", docLoaded );
+		document.getElementById( 'login-btn' ).addEventListener( 'click', doLogin );
+		document.getElementById( 'settings-btn' ).addEventListener( 'click', openSettings );
 		function docLoaded() {
 			wrtc_ui_init();
 			wrtc_ui_deviceList();
