@@ -5,7 +5,14 @@ async function wrtc_di_enumDevices() {
 		return retVal;
 	} else {
 	}
-	await navigator.mediaDevices.getUserMedia( { audio: true, video: true } );   
+	try {
+		await navigator.mediaDevices.getUserMedia( { audio: true, video: false } );   
+	} cathc( err ) {
+	}
+	try {
+		await navigator.mediaDevices.getUserMedia( { audio: false, video: true } );   
+	} cathc( err ) {
+	}
 	let deviceList = await navigator.mediaDevices.enumerateDevices();
 	let regExp = /^[0-9,a-f]+$/gi;
 	deviceList.forEach(
