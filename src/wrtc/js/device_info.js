@@ -9,12 +9,12 @@ async function wrtc_di_enumDevices() {
 	}
 	try {
 		await navigator.mediaDevices.getUserMedia( { audio: isUsingAudio, video: isUsingVideo } );   
-	} cathc( err ) {
+	} catch( err ) {
 		isUsingAudio = false;
 	}
 	try {
 		await navigator.mediaDevices.getUserMedia( { audio: false, video: true } );   
-	} cathc( err ) {
+	} catch( err ) {
 		isUsingVideo = false;
 	}
 	let deviceList = await navigator.mediaDevices.enumerateDevices();
