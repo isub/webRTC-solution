@@ -8,6 +8,7 @@
 		<meta name="author" content="Your name here!">
 
 		<link href="css/style.css" rel="stylesheet">
+		<link rel="manifest" href="json/manifest.json">
 	</head>
 
 	<body>
