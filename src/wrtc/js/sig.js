@@ -45,8 +45,10 @@ function wrtc_sig_doLoginResp( event ) {
 			}
 		}
 	} else if( respJSON.hasOwnProperty( 'error' ) ) {
-		if( respJSON.hasOwnProperty( 'error.message' ) ) {
+		if( respJSON.hasOwnProperty( 'message' ) ) {
 			onFailedCB( respJSON.error.message );
+		} else {
+			onFailedCB( 'undefined error' );
 		}
 	} else {
 		onFailedCB( 'unexpected error' );
