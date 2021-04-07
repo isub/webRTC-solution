@@ -19,7 +19,7 @@
 		</div>
 		<div id="state-online" style="align:center;width:600px;display:none">
 			<?php
-				include 'php/dialpad.html';
+				include 'php/dialpad.php';
 			?>
 		</div>
 		<div id="state-active" style="align:center;width:600px;display: none">
