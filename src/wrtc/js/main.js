@@ -18,7 +18,7 @@
 		function didLoginSuccess() {
 		}
 		function didLoginFailed( err ) {
-			console.log( 'authentification failed: ', err );
+			console.log( 'authentification failed:', err );
 		}
 		function openSettings() {
 			if( document.getElementById( 'settings' ).style.display === 'none' ) {
@@ -31,9 +31,9 @@
 			const configuration = { 'iceServers': [ { 'urls': 'turn:sip.dtco.ru', 'username': 'sip.dtco.ru', 'credential': 'Gh0uy0pG0u0ls' } ] };
 			const peerConnection = new RTCPeerConnection( configuration );
 			let offerLocal = await peerConnection.createOffer( { 'offerToReceiveAudio': true } );
-			console.log( 'local offer: ', offerLocal );
+			console.log( 'local offer:', offerLocal );
 			offerLocal = await peerConnection.createOffer( { 'offerToReceiveAudio': false } );
-			console.log( 'local offer: ', offerLocal );
+			console.log( 'local offer:', offerLocal );
 		}
 	}
 )();
