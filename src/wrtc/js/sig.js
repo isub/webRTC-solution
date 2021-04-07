@@ -32,7 +32,7 @@ function wrtc_sig_doLoginResp( event ) {
 		console.debug( 'invalid response id: ', event.data );
 	}
 	if( respJSON.hasOwnProperty( 'result' ) ) {
-		if( respJSON.hasOwnProperty( 'result.message' ) && respJSON.hasOwnProperty( 'result.sessid' ) ) {
+		if( respJSON.result.hasOwnProperty( 'message' ) && respJSON.result.hasOwnProperty( 'sessid' ) ) {
 			if( respJSON.result.message === 'logged in' ) {
 			} else {
 				console.debug( 'unrecognised response message: ', respJSON.result.message );
@@ -45,7 +45,7 @@ function wrtc_sig_doLoginResp( event ) {
 			}
 		}
 	} else if( respJSON.hasOwnProperty( 'error' ) ) {
-		if( respJSON.hasOwnProperty( 'message' ) ) {
+		if( respJSON.error.hasOwnProperty( 'message' ) ) {
 			onFailedCB( respJSON.error.message );
 		} else {
 			onFailedCB( 'undefined error' );
