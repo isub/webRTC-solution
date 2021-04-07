@@ -8,7 +8,7 @@ async function wrtc_di_enumDevices() {
 	} else {
 	}
 	try {
-		await navigator.mediaDevices.getUserMedia( { audio: isUsingAudio, video: isUsingVideo } );   
+		await navigator.mediaDevices.getUserMedia( { audio: true, video: false } );   
 	} catch( err ) {
 		isUsingAudio = false;
 	}
