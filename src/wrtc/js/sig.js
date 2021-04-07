@@ -44,5 +44,11 @@ function wrtc_sig_doLoginResp( event ) {
 				onFailedCB( 'invalid response session-id!!!' );
 			}
 		}
+	} else if( respJSON.hasOwnProperty( 'error' ) ) {
+		if( respJSON.hasOwnProperty( 'error.message' ) {
+			onFailedCB( respJSON.error.message );
+		}
+	} else {
+		onFailedCB( 'unexpected error' );
 	}
 }
