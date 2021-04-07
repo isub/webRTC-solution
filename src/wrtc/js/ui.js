@@ -13,6 +13,20 @@ function fillSelect( elementId, devices, deviceType ) {
 		}
 	);
 }
+function wrtc_ui_init() {
+	document.addEventListener( "DOMContentLoaded", docLoaded );
+	document.getElementById( 'login-btn' ).addEventListener( 'click', doLogin );
+	document.getElementById( 'settings-btn' ).addEventListener( 'click', openSettings );
+	if( navigator.mediaDevices === undefined ) {
+	} else {
+		navigator.mediaDevices.addEventListener(
+			'devicechange',
+			event => {
+				wrtc_ui_deviceList();
+			}
+		);
+	}
+}
 async function wrtc_ui_deviceList() {
 	let devices = await wrtc_di_enumDevices();
 	console.debug( 'wrtc_di_enumDevices() result: ', devices );
