@@ -18,6 +18,7 @@ async function wrtc_di_enumDevices() {
 		isUsingVideo = false;
 	}
 	let deviceList = await navigator.mediaDevices.enumerateDevices();
+	console.debug( 'full device list: ', deviceList );
 	deviceList.forEach(
 		function( deviceItem ) {
 			retVal.push(
