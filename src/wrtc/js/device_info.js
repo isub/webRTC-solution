@@ -5,16 +5,16 @@ async function wrtc_di_enumDevices() {
 		return retVal;
 	} else {
 	}
-	let devices = await navigator.mediaDevices.enumerateDevices();
+	let deviceList = await navigator.mediaDevices.enumerateDevices();
 	let regExp = /^[0-9,a-f]+$/gi;
-	devices.forEach(
-		function( item, ind, devices ) {
-			if( regExp.test( item.deviceId ) ) {
+	deviceList.forEach(
+		function( deviceItem, ind, deviceList ) {
+			if( regExp.test( deviceItem.deviceId ) ) {
 				retVal.push(
 					{
-						kind: item.kind,
-						id: item.deviceId,
-						label: item.label
+						kind: deviceItem.kind,
+						id: deviceItem.deviceId,
+						label: deviceItem.label
 					}
 				);
 			}
