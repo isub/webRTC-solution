@@ -7,7 +7,6 @@
 			wrtc_ui_init();
 			wrtc_ui_deviceList();
 			wrtc_ui_vertoURL();
-			wrtc_sig_genSessionId();
 			wrtc_ws_init( document.getElementById( 'verto-url' ).value );
 		}
 		function doLogin() {
