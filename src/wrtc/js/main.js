@@ -13,7 +13,12 @@
 		function doLogin() {
 			console.log( 'in function doLogin' );
 			credentials = wrtc_ui_onLogin();
-			wrtc_sig_doLogin( credentials );
+			wrtc_sig_doLogin( credentials, didLoginSuccess, didLoginFailed );
+		}
+		function didLoginSuccess() {
+		}
+		function didLoginFailed( err ) {
+			console.log( 'authentification failed: ', err );
 		}
 		function openSettings() {
 			if( document.getElementById( 'settings' ).style.display === 'none' ) {
