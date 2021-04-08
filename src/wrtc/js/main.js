@@ -37,10 +37,13 @@
 			console.debug( 'local offer:', offerLocal );
 			await peerConnection.setLocalDescription( offerLocal );
 			console.debug( 'setLocalDescription:', peerConnection.localDescription );
-			offerLocal = await peerConnection.createOffer( { 'offerToReceiveAudio': false } );
-			console.debug( 'local offer:', offerLocal );
 			peerConnection.onicecandidate = function( event ) {
 				console.debug( 'onicecandidate:', event );
+				if( event.candidate !== undefined ) {
+					peerConnection.addIceCandidate( event.candidate );
+				} else {
+					console.debug( 'local offer:', peerConnection.localDescription );
+				}
 			}
 		}
 	}
