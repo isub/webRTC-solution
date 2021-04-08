@@ -3,6 +3,7 @@
 		document.addEventListener( "DOMContentLoaded", docLoaded );
 		document.getElementById( 'login-btn' ).addEventListener( 'click', doLogin );
 		document.getElementById( 'settings-btn' ).addEventListener( 'click', openSettings );
+		document.getElementById( 'make-call-btn' ).addEventListener( 'click', makeCall );
 		function docLoaded() {
 			wrtc_ui_init();
 			wrtc_ui_deviceList();
