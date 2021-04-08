@@ -35,8 +35,8 @@
 			const peerConnection = new RTCPeerConnection( configuration );
 			let offerLocal = await peerConnection.createOffer( { 'offerToReceiveAudio': true } );
 			console.log( 'local offer:', offerLocal );
-			let test = await peerConnection.setLocalDescription( offerLocal );
-			console.log( 'setLocalDescription:', test );
+			await peerConnection.setLocalDescription( offerLocal );
+			console.log( 'setLocalDescription:', peerConnection.localDescription );
 			offerLocal = await peerConnection.createOffer( { 'offerToReceiveAudio': false } );
 			console.log( 'local offer:', offerLocal );
 		}
