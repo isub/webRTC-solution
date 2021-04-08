@@ -37,7 +37,7 @@
 			console.debug( 'local offer:', offerLocal );
 			await peerConnection.setLocalDescription( offerLocal );
 			console.debug( 'setLocalDescription:', peerConnection.localDescription );
-			peerConnection.onicecandidate = function( event ) {
+			peerConnection.onicecandidate = async function( event ) {
 				console.debug( 'onicecandidate:', event );
 				if( event.candidate !== null ) {
 					await peerConnection.addIceCandidate( event.candidate );
