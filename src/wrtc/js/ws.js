@@ -18,7 +18,7 @@ function wrtc_ws_init( wssURL ) {
 		onMessage_cb( event );
 	}
 	webSock.onerror = function( event ) {
-		console.log( 'an error occurred on web socket:', event );
+		console.debug( 'an error occurred on web socket:', event );
 	}
 }
 function wrtc_ws_sendMessage( message, callback ) {
