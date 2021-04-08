@@ -39,7 +39,7 @@
 			console.debug( 'setLocalDescription:', peerConnection.localDescription );
 			peerConnection.onicecandidate = function( event ) {
 				console.debug( 'onicecandidate:', event );
-				if( event.candidate !== undefined ) {
+				if( event.candidate !== null ) {
 					peerConnection.addIceCandidate( event.candidate );
 				} else {
 					console.debug( 'local offer:', peerConnection.localDescription );
