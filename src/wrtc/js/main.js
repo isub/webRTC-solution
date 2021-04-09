@@ -37,12 +37,15 @@
 			console.debug( 'local offer:', offerLocal );
 			await peerConnection.setLocalDescription( offerLocal );
 			console.debug( 'setLocalDescription:', peerConnection.localDescription );
+			let sdpText;
 			peerConnection.onicecandidate = function( event ) {
 				console.debug( 'onicecandidate:', event );
+				sdtText += 'a=';
 				if( event.candidate !== null ) {
-					peerConnection.addIceCandidate( event.candidate );
+					sdpText += event.candidate + '\r\n';
 				} else {
-					console.debug( 'local offer:', peerConnection.localDescription );
+					sdpText += 'candidate:\r\n';
+					console.debug( 'candidate list:', sdpText );
 				}
 			}
 		}
