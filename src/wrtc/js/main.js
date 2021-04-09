@@ -32,7 +32,7 @@
 		}
 		async function makeCall() {
 			let iceDone = false, iceTimer = null;
-			let iceCandidatList = [];
+			let iceCandidateList = [];
 			const configuration = { 'iceServers': [ { 'urls': 'turn:sip.dtco.ru', 'username': 'sip.dtco.ru', 'credential': 'Gh0uy0pG0u0ls' } ] };
 			const peerConnection = new RTCPeerConnection( configuration );
 			let localOffer = await peerConnection.createOffer( { 'offerToReceiveAudio': true } );
@@ -48,7 +48,7 @@
 				}
 				if( event ) {
 					if( event.candidate ) {
-						iceCandidatList.push( event.candidate );
+						iceCandidateList.push( event.candidate );
 					}
 				} else {
 					iceDone = true;
@@ -62,10 +62,10 @@
 			function iceListCompletedCB() {
 				iceDone = true;
 				iceTimer = null;
-				console.debug( 'iceListCompletedCB: candidate list:', iceCandidatList );
-				iceCandidatList.forEach(
+				console.debug( 'iceListCompletedCB: candidate list:', iceCandidateList );
+				iceCandidateList.forEach(
 					function( candidate ) {
-						peerConnection.iceCandidatList( candidate );
+						peerConnection.addIceCandidate( candidate );
 					}
 				)
 				console.debug( 'iceListCompletedCB: local offer:', localOffer );
