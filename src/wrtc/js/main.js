@@ -30,23 +30,39 @@
 				document.getElementById( 'settings' ).style.display = 'none';
 			}
 		}
-		async function makeCall() {
+		function makeCall() {
+			let iceDone = false, iceTimer = null;
+			let iceCandidatList = [];
 			const configuration = { 'iceServers': [ { 'urls': 'turn:sip.dtco.ru', 'username': 'sip.dtco.ru', 'credential': 'Gh0uy0pG0u0ls' } ] };
 			const peerConnection = new RTCPeerConnection( configuration );
-			let offerLocal = await peerConnection.createOffer( { 'offerToReceiveAudio': true } );
+			let offerLocal = peerConnection.createOffer( { 'offerToReceiveAudio': true } );
 			console.debug( 'local offer:', offerLocal );
-			await peerConnection.setLocalDescription( offerLocal );
-			console.debug( 'setLocalDescription:', peerConnection.localDescription );
-			let sdpText;
 			peerConnection.onicecandidate = function( event ) {
 				console.debug( 'onicecandidate:', event );
-				sdpText += 'a=';
-				if( event.candidate !== null ) {
-					sdpText += event.candidate + '\r\n';
-				} else {
-					sdpText += 'candidate:\r\n';
-					console.debug( 'candidate list:', sdpText );
+				if( iceDone ) {
+					return;
 				}
+				if( ! iceTimer ) {
+					iceTimer = setTimeout( iceListCompletedCB, 1000 );
+				}
+				if( event ) {
+					if( event.candidate ) {
+						iceCandidatList.push( event.candidate );
+					}
+				} else {
+					iceDone = true;
+					if( iceTimer ) {
+						clearTimeout( iceTimer );
+						iceTimer = null;
+					}
+					iceListCompletedCB();
+				}
+			}
+			function iceListCompletedCB() {
+				iceDone = true;
+				iceTimer = null;
+				console.debug( 'iceListCompletedCB: local offer:', offerLocal );
+				console.debug( 'iceListCompletedCB: candidate list:', iceCandidatList );
 			}
 		}
 	}
