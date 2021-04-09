@@ -59,12 +59,12 @@
 					iceListCompletedCB();
 				}
 			}
-			async function iceListCompletedCB() {
+			function iceListCompletedCB() {
 				iceDone = true;
 				iceTimer = null;
 				console.debug( 'iceListCompletedCB: candidate list:', iceCandidateList );
 				iceCandidateList.forEach(
-					function( candidate ) {
+					async function( candidate ) {
 						await peerConnection.addIceCandidate( candidate );
 					}
 				)
