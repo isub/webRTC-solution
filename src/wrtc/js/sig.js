@@ -108,7 +108,7 @@ function wrtc_sig_sendInvite( sdp, destinationNumber, onSuccess, onFailed ) {
 		},
 		"id": g_reqId
 	};
-	console.debug( 'in function wrtc_sig_doLogin:', request );
+	console.debug( 'in function wrtc_sig_sendInvite:', request );
 	wrtc_ws_sendMessage( JSON.stringify( request ), wrtc_sig_sendInviteRespCB );
 }
 function wrtc_sig_sendInviteRespCB( event ) {

@@ -30,7 +30,8 @@
 				document.getElementById( 'settings' ).style.display = 'none';
 			}
 		}
-		async function makeCall( destinationNumber ) {
+		async function makeCall() {
+			let destinationNumber = document.getElementById( 'dialed-number' ).value;
 			let iceDone = false, iceTimer = null;
 			let iceCandidateList = [];
 			let conf = { 'iceServers': [ { 'urls': 'turn:sip.dtco.ru', 'username': 'sip.dtco.ru', 'credential': 'Gh0uy0pG0u0ls' } ] };
