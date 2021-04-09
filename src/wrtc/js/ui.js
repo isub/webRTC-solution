@@ -1,7 +1,7 @@
 
 function fillSelect( elementId, devices, deviceType ) {
 	let filtered = devices.filter( device => device.kind === deviceType );
-	console.debug( 'filter result: ', filtered );
+	console.debug( 'filter result:', filtered );
 	let selectElement = document.getElementById( elementId );
 	selectElement.innerHTML = '';
 	filtered.forEach(
@@ -26,7 +26,7 @@ function wrtc_ui_init() {
 }
 async function wrtc_ui_deviceList() {
 	let devices = await wrtc_di_enumDevices();
-	console.debug( 'wrtc_di_enumDevices() result: ', devices );
+	console.debug( 'wrtc_di_enumDevices result:', devices );
 	fillSelect( 'audio-device-in', devices, 'audioinput' );
 	fillSelect( 'audio-device-out', devices, 'audiooutput' );
 	fillSelect( 'video-device-in', devices, 'videoinput' );
@@ -39,8 +39,8 @@ function wrtc_ui_vertoURL() {
 	}
 }
 function wrtc_ui_onLogin() {
-	console.debug( 'in function wrtc_ui_onLogin: ', document.getElementById( 'login-login' ).value );
-	console.debug( 'in function wrtc_ui_onLogin: ', document.getElementById( 'login-passw' ).value );
+	console.debug( 'in function wrtc_ui_onLogin:', document.getElementById( 'login-login' ).value );
+	console.debug( 'in function wrtc_ui_onLogin:', document.getElementById( 'login-passw' ).value );
 	return {
 		'login': document.getElementById( 'login-login' ).value,
 		'passw': document.getElementById( 'login-passw' ).value

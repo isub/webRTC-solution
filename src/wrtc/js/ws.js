@@ -11,7 +11,7 @@ function wrtc_ws_init( wssURL ) {
 		if( event.wasClean ) {
 			console.debug( 'web socket connection is closed gracefully' );
 		} else {
-			console.debug( 'web socket connection failed: ', event.reason );
+			console.debug( 'web socket connection failed:', event.reason );
 		}
 	}
 	webSock.onmessage = function( event ) {

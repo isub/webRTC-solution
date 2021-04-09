@@ -30,7 +30,7 @@
 				document.getElementById( 'settings' ).style.display = 'none';
 			}
 		}
-		async function makeCall() {
+		async function makeCall( destinationNumber ) {
 			let iceDone = false, iceTimer = null;
 			let iceCandidateList = [];
 			let conf = { 'iceServers': [ { 'urls': 'turn:sip.dtco.ru', 'username': 'sip.dtco.ru', 'credential': 'Gh0uy0pG0u0ls' } ] };
@@ -66,6 +66,13 @@
 				iceTimer = null;
 				console.debug( 'iceListCompletedCB: candidate list:', iceCandidateList );
 				console.debug( 'iceListCompletedCB: local offer:', peerConnection.localDescription );
+				wrtc_sig_sendInvite( peerConnection.localDescription, destinationNumber, didInviteSuccessCB, didInviteFailedCB );
+				function didInviteSuccessCB( ) {
+					console.debug( 'didInviteSuccessCB' );
+				}
+				function didInviteFailedCB() {
+					console.debug( 'didInviteFailedCB' );
+				}
 			}
 		}
 	}
