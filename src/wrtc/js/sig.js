@@ -15,7 +15,7 @@ function wrtc_sig_doLogin( credentials, onSuccess, onFailed ) {
 	g_userId = credentials.login;
 	g_userLogin = credentials.login + '@' + document.domain;
 	console.debug( 'in function wrtc_sig_doLogin:', credentials );
-	request = {"jsonrpc":"2.0","method":"login","params":{"login":g_onFailedCB,"passwd":credentials.passw,"sessid":g_sessionId},"id":g_reqId};
+	request = {"jsonrpc":"2.0","method":"login","params":{"login":g_userLogin,"passwd":credentials.passw,"sessid":g_sessionId},"id":g_reqId};
 	console.debug( 'in function wrtc_sig_doLogin:', request );
 	wrtc_ws_sendMessage( JSON.stringify( request ), wrtc_sig_doLoginRespCB );
 }
