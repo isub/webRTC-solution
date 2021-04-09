@@ -35,8 +35,9 @@
 			let iceCandidatList = [];
 			const configuration = { 'iceServers': [ { 'urls': 'turn:sip.dtco.ru', 'username': 'sip.dtco.ru', 'credential': 'Gh0uy0pG0u0ls' } ] };
 			const peerConnection = new RTCPeerConnection( configuration );
-			let offerLocal = await peerConnection.createOffer( { 'offerToReceiveAudio': true } );
-			console.debug( 'local offer:', offerLocal );
+			let localOffer = await peerConnection.createOffer( { 'offerToReceiveAudio': true } );
+			console.debug( 'makeCall: local offer:', localOffer );
+			peerConnection.setLocalDescription( localOffer );
 			peerConnection.onicecandidate = function( event ) {
 				console.debug( 'onicecandidate:', event );
 				if( iceDone ) {
@@ -61,7 +62,7 @@
 			function iceListCompletedCB() {
 				iceDone = true;
 				iceTimer = null;
-				console.debug( 'iceListCompletedCB: local offer:', offerLocal );
+				console.debug( 'iceListCompletedCB: local offer:', localOffer );
 				console.debug( 'iceListCompletedCB: candidate list:', iceCandidatList );
 			}
 		}
