@@ -33,10 +33,10 @@
 		async function makeCall() {
 			let iceDone = false, iceTimer = null;
 			let iceCandidateList = [];
-			let configuration = { 'iceServers': [ { 'urls': 'turn:sip.dtco.ru', 'username': 'sip.dtco.ru', 'credential': 'Gh0uy0pG0u0ls' } ] };
-			config.bundlePolicy = "max-compat";
-			config.sdpSemantics = "plan-b";
-			let peerConnection = new RTCPeerConnection( configuration );
+			let conf = { 'iceServers': [ { 'urls': 'turn:sip.dtco.ru', 'username': 'sip.dtco.ru', 'credential': 'Gh0uy0pG0u0ls' } ] };
+			conf.bundlePolicy = "max-compat";
+			conf.sdpSemantics = "plan-b";
+			let peerConnection = new RTCPeerConnection( conf );
 			let localOffer = await peerConnection.createOffer( { 'offerToReceiveAudio': true } );
 			console.debug( 'makeCall: local offer:', localOffer );
 			peerConnection.setLocalDescription( localOffer );
