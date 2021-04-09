@@ -37,7 +37,7 @@
 			console.debug( 'local offer:', offerLocal );
 			await peerConnection.setLocalDescription( offerLocal );
 			console.debug( 'setLocalDescription:', peerConnection.localDescription );
-			let sdpText;
+			var sdpText;
 			peerConnection.onicecandidate = function( event ) {
 				console.debug( 'onicecandidate:', event );
 				sdtText += 'a=';
