@@ -63,16 +63,7 @@
 				iceDone = true;
 				iceTimer = null;
 				console.debug( 'iceListCompletedCB: candidate list:', iceCandidateList );
-				iceCandidateList.forEach(
-					async function( candidate ) {
-						try {
-							await peerConnection.addIceCandidate( candidate );
-						} catch( err ) {
-							console.error( 'RTCPeerConnection.addIceCandidate failed:', err );
-						}
-					}
-				)
-				console.debug( 'iceListCompletedCB: local offer:', localOffer );
+				console.debug( 'iceListCompletedCB: local offer:', peerConnection.localDescription );
 			}
 		}
 	}
