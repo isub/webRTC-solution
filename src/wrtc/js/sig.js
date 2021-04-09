@@ -81,7 +81,7 @@ function wrtc_sig_sendInvite( sdp, destinationNumber, onSuccess, onFailed ) {
 		"jsonrpc": "2.0",
 		"method": "verto.invite",
 		"params": {
-			"sdp": sdp,
+			"sdp": sdp.sdp,
 			"dialogParams": {
 				"useVideo": false,
 				"useStereo": false,
