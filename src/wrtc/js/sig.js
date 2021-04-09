@@ -8,7 +8,9 @@ var g_onSuccessCB;
 var g_onFailedCB;
 
 function wrtc_sig_doLogin( credentials, onSuccess, onFailed ) {
-	g_sessionId = genGUID();
+	if( ! g_sessionId ) {
+		g_sessionId = genGUID();
+	}
 	++g_reqId;
 	g_onSuccessCB = onSuccess;
 	g_onFailedCB = onFailed;
