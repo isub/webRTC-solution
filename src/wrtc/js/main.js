@@ -65,7 +65,11 @@
 				console.debug( 'iceListCompletedCB: candidate list:', iceCandidateList );
 				iceCandidateList.forEach(
 					async function( candidate ) {
-						await peerConnection.addIceCandidate( candidate );
+						try {
+							await peerConnection.addIceCandidate( candidate );
+						} catch( err ) {
+							console.error( 'RTCPeerConnection.addIceCandidate failed:', err );
+						}
 					}
 				)
 				console.debug( 'iceListCompletedCB: local offer:', localOffer );
