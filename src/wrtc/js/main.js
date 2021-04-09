@@ -30,12 +30,12 @@
 				document.getElementById( 'settings' ).style.display = 'none';
 			}
 		}
-		function makeCall() {
+		async function makeCall() {
 			let iceDone = false, iceTimer = null;
 			let iceCandidatList = [];
 			const configuration = { 'iceServers': [ { 'urls': 'turn:sip.dtco.ru', 'username': 'sip.dtco.ru', 'credential': 'Gh0uy0pG0u0ls' } ] };
 			const peerConnection = new RTCPeerConnection( configuration );
-			let offerLocal = peerConnection.createOffer( { 'offerToReceiveAudio': true } );
+			let offerLocal = await peerConnection.createOffer( { 'offerToReceiveAudio': true } );
 			console.debug( 'local offer:', offerLocal );
 			peerConnection.onicecandidate = function( event ) {
 				console.debug( 'onicecandidate:', event );
