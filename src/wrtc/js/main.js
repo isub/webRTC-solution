@@ -62,8 +62,13 @@
 			function iceListCompletedCB() {
 				iceDone = true;
 				iceTimer = null;
-				console.debug( 'iceListCompletedCB: local offer:', localOffer );
 				console.debug( 'iceListCompletedCB: candidate list:', iceCandidatList );
+				iceCandidatList.forEach(
+					function( candidate ) {
+						peerConnection.iceCandidatList( candidate );
+					}
+				)
+				console.debug( 'iceListCompletedCB: local offer:', localOffer );
 			}
 		}
 	}
