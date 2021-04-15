@@ -3,7 +3,7 @@ let webSock
 let onMessage_cb
 
 function wrtcs_ws_init( wssURL, callback ) {
-	console.debug( `enter ${Function.name}:`, arguments );
+	console.debug( `enter ${arguments.callee.name}:`, arguments );
 	webSock = new WebSocket( wssURL )
 	webSock.onopen = function() {
 		console.debug( 'web socket connection is established successfully' )
@@ -24,6 +24,6 @@ function wrtcs_ws_init( wssURL, callback ) {
 	}
 }
 function wrtcs_ws_sendMessage( message ) {
-	console.debug( `enter ${Function.name}:`, arguments );
+	console.debug( `enter ${arguments.callee.name}:`, arguments );
 	webSock.send( message )
 }
