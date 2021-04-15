@@ -1,5 +1,4 @@
 
-let g_state = stateEnum.Wait
 let g_userId = null
 let g_userLogin = null
 let g_sessionId = null

@@ -1,11 +1,13 @@
+var g_state = stateEnum.wsNotConnected
 
 const stateEnum = Enum(
     {
-        Wait:'wait',
+        wsNotConnected:'WS is not connected',
+        wsConnected:'WS is connected',
         tryLogin:'try login',
-        calling:'calling',
-        answer:'answer',
-        incomingCall:'incomingCall'
+        loggedIn:'logged in',
+        sentInvite:'invite is sent',
+        gotInvite:'it has got invite'
     })
 function Enum( obj ) {
     // итоговый объект
