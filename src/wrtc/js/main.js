@@ -9,7 +9,7 @@
 			wrtc_ui_init();
 			wrtc_ui_deviceList();
 			wrtc_ui_vertoURL();
-			wrtc_ws_init( document.getElementById( 'verto-url' ).value, wrtcs_sig_ReadWSMessage );
+			wrtcs_ws_init( document.getElementById( 'verto-url' ).value, wrtcs_sig_ReadWSMessage );
 		}
 		function doLogin() {
 			console.debug( 'enter ${Function.name}:',arguments )
