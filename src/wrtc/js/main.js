@@ -5,14 +5,14 @@
 		document.getElementById( 'settings-btn' ).addEventListener( 'click', openSettings );
 		document.getElementById( 'make-call-btn' ).addEventListener( 'click', makeCall );
 		function docLoaded() {
-			console.debug( 'enter ${Function.name}:', arguments )
+			console.debug( "enter ${Function.name}:", arguments )
 			wrtc_ui_init();
 			wrtc_ui_deviceList();
 			wrtc_ui_vertoURL();
 			wrtcs_ws_init( document.getElementById( 'verto-url' ).value, wrtcs_sig_ReadWSMessage );
 		}
 		function doLogin() {
-			console.debug( 'enter ${Function.name}:',arguments )
+			console.debug( "enter ${Function.name}:",arguments )
 			let credentials = wrtc_ui_onLogin();
 			wrtcs_sig_doLogin( credentials, didLoginSuccess, didLoginFailed );
 		}

@@ -5,7 +5,7 @@ function fillSelect( elementId, devices, deviceType ) {
 	let selectElement = document.getElementById( elementId );
 	selectElement.innerHTML = '';
 	filtered.forEach(
-		function( item, id, filtered ) {
+		function( item ) {
 			let selectOption = document.createElement( 'option' );
 			selectOption.value = item.id;
 			selectOption.label = item.label;
@@ -16,17 +16,12 @@ function fillSelect( elementId, devices, deviceType ) {
 function wrtc_ui_init() {
 	if( navigator.mediaDevices === undefined ) {
 	} else {
-		navigator.mediaDevices.addEventListener(
-			'devicechange',
-			event => {
-				wrtc_ui_deviceList();
-			}
-		);
+		navigator.mediaDevices.addEventListener( 'devicechange', wrtc_ui_deviceList );
 	}
 }
 async function wrtc_ui_deviceList() {
 	let devices = await wrtc_di_enumDevices();
-	console.debug( 'wrtc_di_enumDevices result:', devices );
+	console.debug( "${Function.name}:", devices );
 	fillSelect( 'audio-device-in', devices, 'audioinput' );
 	fillSelect( 'audio-device-out', devices, 'audiooutput' );
 	fillSelect( 'video-device-in', devices, 'videoinput' );
