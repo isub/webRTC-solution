@@ -5,28 +5,28 @@
 		document.getElementById( 'settings-btn' ).addEventListener( 'click', openSettings );
 		document.getElementById( 'make-call-btn' ).addEventListener( 'click', makeCall );
 		function docLoaded() {
-			console.debug( 'enter ${Function.name}:', Function.arguments )
+			console.debug( 'enter ${Function.name}:', arguments )
 			wrtc_ui_init();
 			wrtc_ui_deviceList();
 			wrtc_ui_vertoURL();
 			wrtc_ws_init( document.getElementById( 'verto-url' ).value, wrtcs_sig_ReadWSMessage );
 		}
 		function doLogin() {
-			console.debug( 'enter ${Function.name}:', Function.arguments )
+			console.debug( 'enter ${Function.name}:',arguments )
 			let credentials = wrtc_ui_onLogin();
 			wrtcs_sig_doLogin( credentials, didLoginSuccess, didLoginFailed );
 		}
 		function didLoginSuccess() {
-			console.debug( 'enter ${Function.name}:', Function.arguments )
+			console.debug( 'enter ${Function.name}:', arguments )
 			document.getElementById( 'state-offline' ).style.display = 'none';
 			document.getElementById( 'state-online' ).style.display = '';
 			document.getElementById( 'session-control' ).style.display = '';
 		}
 		function didLoginFailed( err ) {
-			console.debug( 'enter ${Function.name}:', Function.arguments )
+			console.debug( 'enter ${Function.name}:', arguments )
 		}
 		function openSettings() {
-			console.debug( 'enter ${Function.name}:', Function.arguments )
+			console.debug( 'enter ${Function.name}:', arguments )
 			if( document.getElementById( 'settings' ).style.display === 'none' ) {
 				document.getElementById( 'settings' ).style.display = '';
 			} else {
@@ -34,7 +34,7 @@
 			}
 		}
 		async function makeCall() {
-			console.debug( 'enter ${Function.name}:', Function.arguments )
+			console.debug( 'enter ${Function.name}:', arguments )
 			let destinationNumber = document.getElementById( 'dialed-number' ).value;
 			let iceDone = false, iceTimer = null;
 			let iceCandidateList = [];
@@ -66,17 +66,17 @@
 				}
 			}
 			function iceListCompletedCB() {
-				console.debug( 'enter ${Function.name}:', Function.arguments )
+				console.debug( 'enter ${Function.name}:', arguments )
 				iceDone = true;
 				iceTimer = null;
 				console.debug( 'iceListCompletedCB: candidate list:', iceCandidateList );
 				console.debug( 'iceListCompletedCB: local offer:', peerConnection.localDescription );
 				wrtcs_sig_sendInvite( peerConnection.localDescription, destinationNumber, didInviteSuccessCB, didInviteFailedCB );
 				function didInviteSuccessCB( ) {
-					console.debug( 'enter ${Function.name}:', Function.arguments )
+					console.debug( 'enter ${Function.name}:', arguments )
 				}
 				function didInviteFailedCB() {
-					console.debug( 'enter ${Function.name}:', Function.arguments )
+					console.debug( 'enter ${Function.name}:', arguments )
 				}
 			}
 		}
