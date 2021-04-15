@@ -20,8 +20,9 @@ function wrtc_ui_init() {
 	}
 }
 async function wrtc_ui_deviceList() {
+	console.debug( `enter ${Function.name}:`, arguments );
 	let devices = await wrtc_di_enumDevices();
-	console.debug( "${Function.name}:", devices );
+	console.debug( `${Function.name}:`, devices );
 	fillSelect( 'audio-device-in', devices, 'audioinput' );
 	fillSelect( 'audio-device-out', devices, 'audiooutput' );
 	fillSelect( 'video-device-in', devices, 'videoinput' );

@@ -10,7 +10,7 @@ let g_onSuccessCB = null
 let g_onFailedCB = null
 
 function wrtcs_sig_doLogin( credentials, onSuccess, onFailed ) {
-	console.debug( 'enter ${Function.name}:', arguments )
+	console.debug( `enter ${Function.name}:`, arguments );
 	if( ! g_sessionId ) {
 		g_sessionId = genGUID()
 	}
@@ -30,10 +30,10 @@ function wrtcs_sig_doLogin( credentials, onSuccess, onFailed ) {
 	wrtcs_ws_sendMessage( JSON.stringify( request ) )
 }
 function wrtcs_sig_ReadWSMessage( event ) {
-	console.debug( 'enter ${Function.name}:', arguments )
+	console.debug( `enter ${Function.name}:`, arguments );
 	if( event.isTrusted ) {
 	} else {
-		console.log( Function.name, ':', 'it has got untrusted message' )
+		console.log( `${Function.name}: it has got untrusted message` )
 		return
 	}
 	let msgJSON
@@ -48,7 +48,7 @@ function wrtcs_sig_ReadWSMessage( event ) {
 	}
 }
 function loginRespCB( respJSON ) {
-	console.debug( 'enter ${Function.name}:', arguments )
+	console.debug( `enter ${Function.name}:`, arguments );
 	g_onAnswerCB = null
 	if( respJSON.id === g_reqId ) {
 	} else {
@@ -82,7 +82,7 @@ function loginRespCB( respJSON ) {
 	}
 }
 function wrtcs_sig_sendInvite( sdp, destinationNumber, onSuccess, onFailed ) {
-	console.debug( 'enter ${Function.name}:', arguments )
+	console.debug( `enter ${Function.name}:`, arguments );
 	g_callId = genGUID()
 	++g_reqId;
 	g_onAnswerCB = inviteRespCB
@@ -119,14 +119,14 @@ function wrtcs_sig_sendInvite( sdp, destinationNumber, onSuccess, onFailed ) {
 		},
 		"id": g_reqId
 	};
-	console.debug( 'in function wrtcs_sig_sendInvite:', request );
+	console.debug( `${Function.name}: ${request}` );
 	wrtcs_ws_sendMessage( JSON.stringify( request ) );
 }
 function inviteRespCB( respJSON ) {
-	console.debug( 'enter ${Function.name}:', arguments )
+	console.debug( `enter ${Function.name}:`, arguments )
 }
 function genGUID() {
-	console.debug( 'enter ${Function.name}', arguments )
+	console.debug( `enter ${Function.name}`, arguments )
 	return ( [1e7]+-1e3+-4e3+-8e3+-1e11 ).replace(
 		/[018]/g, c => ( c ^ crypto.getRandomValues( new Uint8Array( 1 ) )[ 0 ] & 15 >> c / 4 ).toString( 16 )
 	)
