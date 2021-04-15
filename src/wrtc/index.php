@@ -41,6 +41,7 @@
 			?>
 		</div>
 
+		<script type="text/javascript" src="js/common.js"></script>
 		<script type="text/javascript" src="js/device_info.js"></script>
 		<script type="text/javascript" src="js/ui.js"></script>
 		<script type="text/javascript" src="js/ws.js"></script>
