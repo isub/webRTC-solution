@@ -1,7 +1,7 @@
 
 function fillSelect( elementId, devices, deviceType ) {
+	console.debug( `enter ${arguments.callee.name}:`, arguments );
 	let filtered = devices.filter( device => device.kind === deviceType );
-	console.debug( 'filter result:', filtered );
 	let selectElement = document.getElementById( elementId );
 	selectElement.innerHTML = '';
 	filtered.forEach(
@@ -13,21 +13,21 @@ function fillSelect( elementId, devices, deviceType ) {
 		}
 	);
 }
-function wrtcs_ui_init() {
+async function wrtcs_ui_init() {
 	if( navigator.mediaDevices === undefined ) {
 	} else {
 		navigator.mediaDevices.addEventListener( 'devicechange', deviceList );
 	}
-	deviceList()
+	await deviceList()
 	setDefVertoURL()
 }
 async function deviceList() {
-	console.debug( `enter ${arguments.callee.name}:`, arguments );
-	let devices = await wrtcs_di_enumDevices();
-	console.debug( `${arguments.callee.name}:`, devices );
-	fillSelect( 'audio-device-in', devices, 'audioinput' );
-	fillSelect( 'audio-device-out', devices, 'audiooutput' );
-	fillSelect( 'video-device-in', devices, 'videoinput' );
+	console.debug( `enter ${arguments.callee.name}:`, arguments )
+	let devices = await wrtcs_di_enumDevices()
+	console.debug( `${arguments.callee.name}:`, devices )
+	fillSelect( 'audio-device-in', devices, 'audioinput' )
+	fillSelect( 'audio-device-out', devices, 'audiooutput' )
+	fillSelect( 'video-device-in', devices, 'videoinput' )
 }
 function setDefVertoURL() {
 	if( location.protocol === 'https:' ) {
