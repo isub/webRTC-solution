@@ -5,25 +5,28 @@
 		document.getElementById( 'settings-btn' ).addEventListener( 'click', openSettings );
 		document.getElementById( 'make-call-btn' ).addEventListener( 'click', makeCall );
 		function docLoaded() {
+			console.debug( 'enter ${Function.name}:', Function.arguments )
 			wrtc_ui_init();
 			wrtc_ui_deviceList();
 			wrtc_ui_vertoURL();
-			wrtc_ws_init( document.getElementById( 'verto-url' ).value );
+			wrtc_ws_init( document.getElementById( 'verto-url' ).value, wrtcs_sig_ReadWSMessage );
 		}
 		function doLogin() {
-			console.debug( 'in function doLogin' );
-			credentials = wrtc_ui_onLogin();
-			wrtc_sig_doLogin( credentials, didLoginSuccess, didLoginFailed );
+			console.debug( 'enter ${Function.name}:', Function.arguments )
+			let credentials = wrtc_ui_onLogin();
+			wrtcs_sig_doLogin( credentials, didLoginSuccess, didLoginFailed );
 		}
 		function didLoginSuccess() {
+			console.debug( 'enter ${Function.name}:', Function.arguments )
 			document.getElementById( 'state-offline' ).style.display = 'none';
 			document.getElementById( 'state-online' ).style.display = '';
 			document.getElementById( 'session-control' ).style.display = '';
 		}
 		function didLoginFailed( err ) {
-			console.debug( 'authentification failed:', err );
+			console.debug( 'enter ${Function.name}:', Function.arguments )
 		}
 		function openSettings() {
+			console.debug( 'enter ${Function.name}:', Function.arguments )
 			if( document.getElementById( 'settings' ).style.display === 'none' ) {
 				document.getElementById( 'settings' ).style.display = '';
 			} else {
@@ -31,6 +34,7 @@
 			}
 		}
 		async function makeCall() {
+			console.debug( 'enter ${Function.name}:', Function.arguments )
 			let destinationNumber = document.getElementById( 'dialed-number' ).value;
 			let iceDone = false, iceTimer = null;
 			let iceCandidateList = [];
@@ -39,7 +43,7 @@
 			let peerConnection = new RTCPeerConnection( conf );
 			let localOffer = await peerConnection.createOffer( { 'offerToReceiveAudio': true } );
 			console.debug( 'makeCall: local offer:', localOffer );
-			peerConnection.setLocalDescription( localOffer );
+			await peerConnection.setLocalDescription( localOffer );
 			peerConnection.onicecandidate = function( event ) {
 				console.debug( 'onicecandidate:', event );
 				if( iceDone ) {
@@ -62,16 +66,17 @@
 				}
 			}
 			function iceListCompletedCB() {
+				console.debug( 'enter ${Function.name}:', Function.arguments )
 				iceDone = true;
 				iceTimer = null;
 				console.debug( 'iceListCompletedCB: candidate list:', iceCandidateList );
 				console.debug( 'iceListCompletedCB: local offer:', peerConnection.localDescription );
-				wrtc_sig_sendInvite( peerConnection.localDescription, destinationNumber, didInviteSuccessCB, didInviteFailedCB );
+				wrtcs_sig_sendInvite( peerConnection.localDescription, destinationNumber, didInviteSuccessCB, didInviteFailedCB );
 				function didInviteSuccessCB( ) {
-					console.debug( 'didInviteSuccessCB' );
+					console.debug( 'enter ${Function.name}:', Function.arguments )
 				}
 				function didInviteFailedCB() {
-					console.debug( 'didInviteFailedCB' );
+					console.debug( 'enter ${Function.name}:', Function.arguments )
 				}
 			}
 		}

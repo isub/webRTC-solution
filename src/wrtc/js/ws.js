@@ -1,27 +1,29 @@
 
-var webSock;
-var onMessage_cb;
+let webSock
+let onMessage_cb
 
-function wrtc_ws_init( wssURL ) {
-	webSock = new WebSocket( wssURL );
+function wrtcs_ws_init( wssURL, callback ) {
+	console.debug( 'enter ${Function.name}:', Function.arguments )
+	webSock = new WebSocket( wssURL )
 	webSock.onopen = function() {
-		console.debug( 'web socket connection is established successfully' );
+		console.debug( 'web socket connection is established successfully' )
 	}
 	webSock.onclose = function( event ) {
 		if( event.wasClean ) {
-			console.debug( 'web socket connection is closed gracefully' );
+			console.debug( 'web socket connection is closed gracefully' )
 		} else {
-			console.debug( 'web socket connection failed:', event.reason );
+			console.debug( 'web socket connection failed:', event.reason )
 		}
 	}
+	onMessage_cb = callback
 	webSock.onmessage = function( event ) {
-		onMessage_cb( event );
+		onMessage_cb( event )
 	}
 	webSock.onerror = function( event ) {
-		console.debug( 'an error occurred on web socket:', event );
+		console.debug( 'an error occurred on web socket:', event )
 	}
 }
-function wrtc_ws_sendMessage( message, callback ) {
-	onMessage_cb = callback;
-	webSock.send( message );
+function wrtcs_ws_sendMessage( message ) {
+	console.debug( 'enter ${Function.name}:', Function.arguments )
+	webSock.send( message )
 }
