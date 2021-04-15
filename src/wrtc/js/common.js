@@ -1,4 +1,3 @@
-var g_state = stateEnum.wsNotConnected
 
 const stateEnum = Enum(
     {
@@ -9,6 +8,9 @@ const stateEnum = Enum(
         sentInvite:'invite is sent',
         gotInvite:'it has got invite'
     })
+
+var g_state = stateEnum.wsNotConnected
+
 function Enum( obj ) {
     // итоговый объект
     const newObj = {};
