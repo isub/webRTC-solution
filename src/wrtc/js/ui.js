@@ -16,10 +16,12 @@ function fillSelect( elementId, devices, deviceType ) {
 function wrtcs_ui_init() {
 	if( navigator.mediaDevices === undefined ) {
 	} else {
-		navigator.mediaDevices.addEventListener( 'devicechange', wrtcs_ui_deviceList );
+		navigator.mediaDevices.addEventListener( 'devicechange', deviceList );
 	}
+	deviceList()
+	setDefVertoURL()
 }
-async function wrtcs_ui_deviceList() {
+async function deviceList() {
 	console.debug( `enter ${arguments.callee.name}:`, arguments );
 	let devices = await wrtcs_di_enumDevices();
 	console.debug( `${arguments.callee.name}:`, devices );
@@ -27,18 +29,22 @@ async function wrtcs_ui_deviceList() {
 	fillSelect( 'audio-device-out', devices, 'audiooutput' );
 	fillSelect( 'video-device-in', devices, 'videoinput' );
 }
-function wrtcs_ui_vertoURL() {
+function setDefVertoURL() {
 	if( location.protocol === 'https:' ) {
 		document.getElementById( 'verto-url' ).value = 'wss:sip.dtco.ru:8082';
 	} else {
 		document.getElementById( 'verto-url' ).value = 'ws:sip.dtco.ru:8081';
 	}
 }
-function wrtcs_ui_onLogin() {
-	console.debug( 'in function wrtcs_ui_onLogin:', document.getElementById( 'login-login' ).value );
-	console.debug( 'in function wrtcs_ui_onLogin:', document.getElementById( 'login-passw' ).value );
+function wrtcs_ui_getUserCredentials() {
 	return {
-		'login': document.getElementById( 'login-login' ).value,
-		'passw': document.getElementById( 'login-passw' ).value
+		"login": document.getElementById( 'login-login' ).value,
+		"passw": document.getElementById( 'login-passw' ).value
 	};
+}
+function wrtcs_ui_getVertoURL() {
+	return document.getElementById('verto-url').value
+}
+function wrtcs_ui_getDialedNumber() {
+	return document.getElementById('dialed-number').value
 }

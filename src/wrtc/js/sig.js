@@ -8,15 +8,30 @@ let g_onAnswerCB = null
 let g_onSuccessCB = null
 let g_onFailedCB = null
 
-function wrtcs_sig_doLogin( credentials, onSuccess, onFailed ) {
+function wrtcs_sig_ReadWSMessage( data ) {
 	console.debug( `enter ${arguments.callee.name}:`, arguments );
+	let msgJSON
+	try {
+		msgJSON = JSON.parse( data )
+	} catch( err ) {
+		g_onFailedCB( arguments.callee.name, ':', 'invalid message format' )
+		return
+	}
+	if( g_onAnswerCB ) {
+		g_onAnswerCB( msgJSON )
+	}
+}
+
+function wrtcs_sig_doLogin( credentials ) {
+	console.debug( `enter ${arguments.callee.name}:`, arguments );
+	wrtcs_ws_init( wrtcs_ui_getVertoURL(), wrtcs_sig_ReadWSMessage )
 	if( ! g_sessionId ) {
 		g_sessionId = genGUID()
 	}
 	++g_reqId
 	g_onAnswerCB = loginRespCB
-	g_onSuccessCB = onSuccess
-	g_onFailedCB = onFailed
+	g_onSuccessCB = didLoginSuccess
+	g_onFailedCB = didLoginFailed
 	g_userId = credentials.login
 	g_userLogin = credentials.login + '@' + document.domain
 	console.debug( 'in function wrtcs_sig_doLogin:', credentials )
@@ -28,23 +43,14 @@ function wrtcs_sig_doLogin( credentials, onSuccess, onFailed ) {
 	}
 	wrtcs_ws_sendMessage( JSON.stringify( request ) )
 }
-function wrtcs_sig_ReadWSMessage( event ) {
-	console.debug( `enter ${arguments.callee.name}:`, arguments );
-	if( event.isTrusted ) {
-	} else {
-		console.log( `${arguments.callee.name}: it has got untrusted message` )
-		return
-	}
-	let msgJSON
-	try {
-		msgJSON = JSON.parse( event.data )
-	} catch( err ) {
-		g_onFailedCB( arguments.callee.name, ':', 'invalid message format' )
-		return
-	}
-	if( g_onAnswerCB ) {
-		g_onAnswerCB( msgJSON )
-	}
+function didLoginSuccess() {
+	console.debug(`enter ${arguments.callee.name}:`, arguments);
+	document.getElementById('state-offline').style.display = 'none';
+	document.getElementById('state-online').style.display = '';
+	document.getElementById('session-control').style.display = '';
+}
+function didLoginFailed( err ) {
+	console.debug(`enter ${arguments.callee.name}:`, arguments);
 }
 function loginRespCB( respJSON ) {
 	console.debug( `enter ${arguments.callee.name}:`, arguments );

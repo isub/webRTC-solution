@@ -4,12 +4,13 @@ let onMessage_cb = null
 
 function wrtcs_ws_close() {
 	if( webSock ) {
-		webSock.close();
-		g_state = stateEnum.wsNotConnected;
+		webSock.close()
+		g_state = stateEnum.wsNotConnected
+		webSock = null
 	}
 }
 function wrtcs_ws_init( wssURL, callback ) {
-	console.debug( `enter ${arguments.callee.name}:`, arguments );
+	console.debug( `enter ${arguments.callee.name}:`, arguments )
 	if( g_state === stateEnum.wsNotConnected && ! webSock ) {
 		webSock = new WebSocket( wssURL )
 		webSock.onopen = function() {
@@ -23,17 +24,24 @@ function wrtcs_ws_init( wssURL, callback ) {
 			}
 		}
 		onMessage_cb = callback
-		webSock.onmessage = function( event ) {
-			onMessage_cb( event )
-		}
+		webSock.onmessage = onMessage
 		webSock.onerror = function( event ) {
 			console.debug( 'an error occurred on web socket:', event )
 		}
 	} else {
-		console.log( `${arguments.callee.name}:`, 'already connected' );
+		console.log( `${arguments.callee.name}:`, 'already connected' )
 	}
 }
 function wrtcs_ws_sendMessage( message ) {
-	console.debug( `enter ${arguments.callee.name}:`, arguments );
+	console.debug( `enter ${arguments.callee.name}:`, arguments )
 	webSock.send( message )
+}
+function onMessage( event ) {
+	console.debug( `enter ${arguments.callee.name}:`, arguments )
+	if( event.isTrusted ) {
+	} else {
+		console.log( `${arguments.callee.name}: it has got untrusted message` )
+		return
+	}
+	onMessage_cb( event.data )
 }
