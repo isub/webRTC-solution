@@ -31,16 +31,16 @@ async function deviceList() {
 }
 function setDefVertoURL() {
 	if( location.protocol === 'https:' ) {
-		document.getElementById( 'verto-url' ).value = 'wss:sip.dtco.ru:8082';
+		document.getElementById( 'verto-url' ).value = 'wss:sip.dtco.ru:8082'
 	} else {
-		document.getElementById( 'verto-url' ).value = 'ws:sip.dtco.ru:8081';
+		document.getElementById( 'verto-url' ).value = 'ws:sip.dtco.ru:8081'
 	}
 }
 function wrtcs_ui_getUserCredentials() {
 	return {
 		"login": document.getElementById( 'login-login' ).value,
 		"passw": document.getElementById( 'login-passw' ).value
-	};
+	}
 }
 function wrtcs_ui_getVertoURL() {
 	return document.getElementById('verto-url').value

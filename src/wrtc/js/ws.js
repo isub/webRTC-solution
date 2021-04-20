@@ -15,6 +15,7 @@ function wrtcs_ws_init( wssURL, callback ) {
 		webSock = new WebSocket( wssURL )
 		webSock.onopen = function() {
 			console.debug( 'web socket connection is established successfully' )
+			return true
 		}
 		webSock.onclose = function( event ) {
 			if( event.wasClean ) {
@@ -27,9 +28,11 @@ function wrtcs_ws_init( wssURL, callback ) {
 		webSock.onmessage = onMessage
 		webSock.onerror = function( event ) {
 			console.debug( 'an error occurred on web socket:', event )
+			return false
 		}
 	} else {
 		console.log( `${arguments.callee.name}:`, 'already connected' )
+		return true
 	}
 }
 function wrtcs_ws_sendMessage( message ) {
