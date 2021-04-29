@@ -42,12 +42,12 @@
 		</div>
 
 		<script type="text/javascript" src="js/common.js"></script>
-		<script type="text/javascript" src="js/device_info.js"></script>
-		<script type="text/javascript" src="js/ui.js"></script>
 		<script type="text/javascript" src="js/ws.js"></script>
 		<script type="text/javascript" src="js/peer.js"></script>
+		<script type="text/javascript" src="js/device_info.js"></script>
 		<script type="text/javascript" src="js/sdp.js"></script>
 		<script type="text/javascript" src="js/sig.js"></script>
+		<script type="text/javascript" src="js/ui.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>
 </html>

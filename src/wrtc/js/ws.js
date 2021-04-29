@@ -10,11 +10,17 @@ function wrtcs_ws_close() {
 	}
 }
 function wrtcs_ws_init( wssURL, callback ) {
+	let connectionTimer = null
+	let connectionStatus = false
 	console.debug( `enter ${arguments.callee.name}:`, arguments )
 	if( g_state === stateEnum.wsNotConnected && ! webSock ) {
 		webSock = new WebSocket( wssURL )
+		connectionTimer = setTimeout( connectionTimedOut, 5000)
 		webSock.onopen = function() {
-			console.debug( 'web socket connection is established successfully' )
+			console.debug( `enter ${arguments.callee.name}:`, 'web-socket connection is established successfully' )
+			clearTimeout( connectionTimer )
+			connectionTimer = null
+			connectionStatus = true
 			return true
 		}
 		webSock.onclose = function( event ) {
@@ -34,6 +40,12 @@ function wrtcs_ws_init( wssURL, callback ) {
 		console.log( `${arguments.callee.name}:`, 'already connected' )
 		return true
 	}
+	function connectionTimedOut() {
+		console.debug( `enter ${arguments.callee.name}:`, 'web-socket connection is established successfully' )
+		connectionTimer = null
+	}
+
+	return connectionStatus
 }
 function wrtcs_ws_sendMessage( message ) {
 	console.debug( `enter ${arguments.callee.name}:`, arguments )
