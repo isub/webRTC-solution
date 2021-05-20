@@ -34,7 +34,7 @@ function wsConnect( wssURL ) {
 	if( ! webSock ) {
 		webSock = new WebSocket( wssURL );
 	}
-	connectTimer = setTimeout( onTimeout, 5000 );
+	connectTimer = setTimeout( onTimeout, 60000 );
 	if( connectTimer ) {
 		connectTimer = null;
 	}
