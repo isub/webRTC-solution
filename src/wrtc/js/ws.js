@@ -34,7 +34,7 @@ function wsConnect( wssURL ) {
 	if( ! webSock ) {
 		webSock = new WebSocket( wssURL );
 	}
-	connectTimer = setTimeout( onTimeout, 60000 );
+	connectTimer = setTimeout( onTimeout, 5000 );
 	if( connectTimer ) {
 		connectTimer = null;
 	}
@@ -54,15 +54,16 @@ function wsConnect( wssURL ) {
 		clearTimeout( connectTimer );
 	}
 	webSock.onerror = function( event ) {
-		console.debug( 'an error occurred on web socket:', event );
+		console.debug( `enter ${arguments.callee.name}:`, event );
 		success = true;
 		clearTimeout( connectTimer );
 	}
 	webSock.onclose = function( event ) {
+		console.debug( `enter ${arguments.callee.name}:`, event );
 		if( event.wasClean ) {
-			console.debug( 'web socket connection is closed gracefully' );
+			console.debug( `${arguments.callee.name}`, 'web socket connection is closed gracefully' );
 		} else {
-			console.debug( 'web socket connection failed:', event.reason );
+			console.debug( `${arguments.callee.name}`, 'web socket connection failed:', event.reason );
 		}
 	}
 	return success;
