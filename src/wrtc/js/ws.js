@@ -55,6 +55,8 @@ function wsConnect( wssURL ) {
 	}
 	webSock.onerror = function( event ) {
 		console.debug( 'an error occurred on web socket:', event );
+		success = true;
+		clearTimeout( connectTimer );
 	}
 	webSock.onclose = function( event ) {
 		if( event.wasClean ) {
