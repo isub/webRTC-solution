@@ -21,13 +21,8 @@ function wrtcs_sig_ReadWSMessage( data ) {
 		g_onAnswerCB( msgJSON )
 	}
 }
-
 function wrtcs_sig_doLogin( credentials ) {
 	console.debug( `enter ${arguments.callee.name}:`, arguments );
-	wrtcs_ws_init( wrtcs_ui_getVertoURL(), wrtcs_sig_ReadWSMessage )
-	if( ! g_sessionId ) {
-		g_sessionId = genGUID()
-	}
 	++g_reqId
 	g_onAnswerCB = loginRespCB
 	g_onSuccessCB = didLoginSuccess
@@ -35,13 +30,23 @@ function wrtcs_sig_doLogin( credentials ) {
 	g_userId = credentials.login
 	g_userLogin = credentials.login + '@' + document.domain
 	console.debug( 'in function wrtcs_sig_doLogin:', credentials )
-	let request = {
-		"jsonrpc": "2.0",
-		"method": "login",
-		"params": { "login": g_userLogin, "passwd": credentials.passw, "sessid": g_sessionId },
-		"id": g_reqId
+	if( ! g_sessionId ) {
+		g_sessionId = genGUID()
 	}
-	wrtcs_ws_sendMessage( JSON.stringify( request ) )
+	wrtcs_ws_init( wrtcs_ui_getVertoURL(), doLogin, connectionFailed, wrtcs_sig_ReadWSMessage )
+	function doLogin() {
+		console.debug( `enter ${arguments.callee.name}:`, arguments );
+		let request = {
+			"jsonrpc": "2.0",
+			"method": "login",
+			"params": { "login": g_userLogin, "passwd": credentials.passw, "sessid": g_sessionId },
+			"id": g_reqId
+		}
+		wrtcs_ws_sendMessage( JSON.stringify( request ) )
+	}
+	function connectionFailed() {
+		console.debug( `enter ${arguments.callee.name}:`, arguments );
+	}
 }
 function didLoginSuccess() {
 	console.debug(`enter ${arguments.callee.name}:`, arguments);

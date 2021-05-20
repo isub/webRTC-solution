@@ -1,7 +1,4 @@
 
-var isUsingAudio = true;
-var isUsingVideo = true;
-
 async function wrtcs_di_enumDevices() {
 	let retVal = [];
 	if( navigator.mediaDevices === undefined ) {
